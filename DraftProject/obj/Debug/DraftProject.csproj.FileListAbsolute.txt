@@ -1,0 +1,10 @@
+D:\Projects\SamanProject\DraftProject\DraftProject\bin\Debug\DraftProject.exe.config
+D:\Projects\SamanProject\DraftProject\DraftProject\bin\Debug\DraftProject.exe
+D:\Projects\SamanProject\DraftProject\DraftProject\bin\Debug\DraftProject.pdb
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.csprojResolveAssemblyReference.cache
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.Form1.resources
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.Properties.Resources.resources
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.csproj.GenerateResource.Cache
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.exe
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.pdb
+D:\Projects\SamanProject\DraftProject\DraftProject\obj\Debug\DraftProject.users.RegisterUserForm.resources

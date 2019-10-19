@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DraftContentModelStoreContainer" CdmEntityContainer="DraftContentEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DraftContentModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
