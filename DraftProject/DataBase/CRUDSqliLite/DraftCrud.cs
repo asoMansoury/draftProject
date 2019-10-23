@@ -1,4 +1,6 @@
 ﻿using DraftProject.DataBase.Models;
+using DraftProject.Draft;
+using DraftProject.users;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -94,6 +96,53 @@ namespace DraftProject.DataBase.CRUDSqliLite
             result.Date = item["Date"].ToString();
 
             return result;
+        }
+
+        public List<DraftModel> GetDrafts(string path)
+        {
+            List<DraftModel> result = new List<DraftModel>();
+            string query = @"SELECT * from Draft";
+            db.SetConnection(path);
+            var executeQuery = db.ExecuteQueryForLoading(query);
+            if (executeQuery.Rows.Count > 0)
+            {
+                foreach (DataRow item in executeQuery.Rows)
+                {
+                    result.Add(mapToModel(item));
+                }
+                return result;
+            }
+
+            return null;
+        }
+
+
+        public bool saveIntoDraftTable(List<DraftModel> model)
+        {
+            foreach (var item in model)
+            {
+                db.InsertData(users.DatabaseConstantData.DraftTable, bindFields(item));
+            }
+            return true;
+        }
+
+        private Dictionary<string, string> bindFields(DraftModel model)
+        {
+            var paramValues = new Dictionary<string, string>();
+            paramValues.Add(DraftConstantData.CarTag, model.CarTag);
+            paramValues.Add(DraftConstantData.CertificateDriver, model.CertificateDriver);
+            paramValues.Add(DraftConstantData.Date, model.Date);
+            paramValues.Add(DraftConstantData.Destination, model.Destination);
+            paramValues.Add(DraftConstantData.Driver, model.Driver);
+            paramValues.Add(DraftConstantData.Management, model.Management);
+            paramValues.Add(DraftConstantData.Number, model.Number.ToString());
+            paramValues.Add(DraftConstantData.Origin, model.Origin);
+            paramValues.Add(DraftConstantData.Serial, model.Serial);
+            paramValues.Add(DraftConstantData.Truck, model.Truck);
+            paramValues.Add(DraftConstantData.Type, model.Type);
+            paramValues.Add(DraftConstantData.UserID, model.UserID.ToString());
+            paramValues.Add(DraftConstantData.Value, model.Value.ToString());
+            return paramValues;
         }
     }
 }

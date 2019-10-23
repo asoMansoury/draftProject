@@ -49,6 +49,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grdUsers = new System.Windows.Forms.DataGridView();
+            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -60,7 +61,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.عملیاتحوالهToolStripMenuItem});
+            this.عملیاتحوالهToolStripMenuItem,
+            this.عملیاتپایگاهدادهToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -113,14 +115,14 @@
             // ایجادحوالهجدیدToolStripMenuItem
             // 
             this.ایجادحوالهجدیدToolStripMenuItem.Name = "ایجادحوالهجدیدToolStripMenuItem";
-            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ایجادحوالهجدیدToolStripMenuItem.Text = "ایجاد حواله جدید";
             this.ایجادحوالهجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادحوالهجدیدToolStripMenuItem_Click);
             // 
             // ویرایشحوالهToolStripMenuItem
             // 
             this.ویرایشحوالهToolStripMenuItem.Name = "ویرایشحوالهToolStripMenuItem";
-            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ویرایشحوالهToolStripMenuItem.Text = "ویرایش حواله";
             this.ویرایشحوالهToolStripMenuItem.Click += new System.EventHandler(this.ویرایشحوالهToolStripMenuItem_Click);
             // 
@@ -245,6 +247,13 @@
             this.grdUsers.Size = new System.Drawing.Size(741, 276);
             this.grdUsers.TabIndex = 0;
             // 
+            // عملیاتپایگاهدادهToolStripMenuItem
+            // 
+            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
+            // 
             // UpdateUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,5 +304,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdUsers;
+        private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
     }
 }

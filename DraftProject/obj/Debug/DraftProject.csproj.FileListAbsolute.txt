@@ -49,3 +49,4 @@ D:\DrafProject22\draftProject\DraftProject\bin\Debug\Stimulsoft.Report.dll
 D:\DrafProject22\draftProject\DraftProject\bin\Debug\Stimulsoft.Report.Win.dll
 D:\DrafProject22\draftProject\DraftProject\obj\Debug\DraftProject.csprojAssemblyReference.cache
 D:\DrafProject22\draftProject\DraftProject\obj\Debug\DraftProject.Draft.UpdateDraft.resources
+D:\DrafProject22\draftProject\DraftProject\obj\Debug\DraftProject.users.BackupDatabase.resources

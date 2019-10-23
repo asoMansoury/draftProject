@@ -4,12 +4,14 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace DraftProject.DataBase.CRUDSqliLite
 {
     public  class DbContext
     {
         private SQLiteConnection sql_con;
+        private SQLiteConnection sql_conForLoading;
         private SQLiteCommand sql_cmd;
         private SQLiteDataAdapter DB;
         private DataSet DS = new DataSet();
@@ -60,8 +62,15 @@ namespace DraftProject.DataBase.CRUDSqliLite
 
         private void SetConnection()
         {
+            string dbFilePath = Application.StartupPath+"\\sqlLiteDbDraft.db";
             sql_con = new SQLiteConnection
-                (@"Data Source = D:\DrafProject22\draftProject\DraftProject\DataBase\sqlLiteDbDraft.db; Version = 3; FailIfMissing = True; Foreign Keys = True;", true);
+                (@"Data Source = "+ dbFilePath + "; Version = 3; FailIfMissing = True; Foreign Keys = True;", true);
+        }
+
+        public void SetConnection(string filePath)
+        {
+            sql_conForLoading = new SQLiteConnection
+                (@"Data Source = " + filePath + "; Version = 3; FailIfMissing = True; Foreign Keys = True;", true);
         }
 
         private void ExecuteQuery(string txtQuery)
@@ -73,6 +82,21 @@ namespace DraftProject.DataBase.CRUDSqliLite
             sql_cmd.ExecuteNonQuery();
             sql_con.Close();
         }
+
+
+        public DataTable ExecuteQueryForLoading(string txtQuery)
+        {
+            SetConnection();
+            sql_conForLoading.Open();
+            sql_cmd = sql_conForLoading.CreateCommand();
+            DB = new SQLiteDataAdapter(txtQuery, sql_conForLoading);
+            DS.Reset();
+            DB.Fill(DS);
+            DT = DS.Tables[0];
+            sql_con.Close();
+            return DT;
+        }
+
 
 
         public void UpdateUser(string TableName,int ID, Dictionary<string, string> parameters)

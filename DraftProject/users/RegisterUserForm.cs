@@ -168,5 +168,12 @@ namespace DraftProject.users
             frm.Show();
             this.Close();
         }
+
+        private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackupDatabase frm = new BackupDatabase();
+            frm.ShowDialog(this);
+
+        }
     }
 }

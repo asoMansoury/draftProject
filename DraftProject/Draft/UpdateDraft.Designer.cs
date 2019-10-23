@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtDestination = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtOrigin = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDriver = new System.Windows.Forms.TextBox();
@@ -55,10 +59,7 @@
             this.ایجادحوالهجدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ویرایشحوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtDestination = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtOrigin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,6 +91,38 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(747, 168);
             this.panel3.TabIndex = 0;
+            // 
+            // txtDestination
+            // 
+            this.txtDestination.Location = new System.Drawing.Point(33, 127);
+            this.txtDestination.Name = "txtDestination";
+            this.txtDestination.Size = new System.Drawing.Size(272, 20);
+            this.txtDestination.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(322, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "مقصد";
+            // 
+            // txtOrigin
+            // 
+            this.txtOrigin.Location = new System.Drawing.Point(398, 127);
+            this.txtOrigin.Name = "txtOrigin";
+            this.txtOrigin.Size = new System.Drawing.Size(272, 20);
+            this.txtOrigin.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(689, 134);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "مبدا";
             // 
             // txtType
             // 
@@ -244,7 +277,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.عملیاتحوالهToolStripMenuItem});
+            this.عملیاتحوالهToolStripMenuItem,
+            this.عملیاتپایگاهدادهToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -310,37 +344,12 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
             this.toolStripMenuItem2.Text = "-----------------------------";
             // 
-            // txtDestination
+            // عملیاتپایگاهدادهToolStripMenuItem
             // 
-            this.txtDestination.Location = new System.Drawing.Point(33, 127);
-            this.txtDestination.Name = "txtDestination";
-            this.txtDestination.Size = new System.Drawing.Size(272, 20);
-            this.txtDestination.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(322, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "مقصد";
-            // 
-            // txtOrigin
-            // 
-            this.txtOrigin.Location = new System.Drawing.Point(398, 127);
-            this.txtOrigin.Name = "txtOrigin";
-            this.txtOrigin.Size = new System.Drawing.Size(272, 20);
-            this.txtOrigin.TabIndex = 18;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(689, 134);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "مبدا";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
             // 
             // UpdateDraft
             // 
@@ -400,5 +409,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtOrigin;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
     }
 }

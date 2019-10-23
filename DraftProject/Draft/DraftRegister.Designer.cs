@@ -68,6 +68,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,7 +77,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.عملیاتحوالهToolStripMenuItem});
+            this.عملیاتحوالهToolStripMenuItem,
+            this.عملیاتپایگاهدادهToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -448,6 +450,13 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // عملیاتپایگاهدادهToolStripMenuItem
+            // 
+            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
+            // 
             // DraftRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,5 +521,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
     }
 }

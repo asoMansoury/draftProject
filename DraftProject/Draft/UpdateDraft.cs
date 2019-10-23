@@ -1,5 +1,6 @@
 ﻿using DraftProject.DataBase.CRUDSqliLite;
 using DraftProject.DataBase.Models;
+using DraftProject.users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,6 +83,12 @@ namespace DraftProject.Draft
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackupDatabase frm = new BackupDatabase();
+            frm.ShowDialog(this);
         }
     }
 }
