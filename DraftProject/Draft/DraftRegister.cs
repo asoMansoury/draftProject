@@ -15,9 +15,13 @@ namespace DraftProject.Draft
 
     public partial class DraftRegister : Form
     {
-        public DraftRegister()
+        private bool isForUpdate = false;
+        private int DraftID = 0;
+        public DraftRegister(bool isForUpdate = false, int DraftID = 0)
         {
             InitializeComponent();
+            this.isForUpdate = isForUpdate;
+            this.DraftID = DraftID;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,9 +31,9 @@ namespace DraftProject.Draft
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if(txtCarTag.Text=="" || txtCertificateDriver.Text == "" || txtDate.Text=="" || txtDestination.Text==""||txtDriver.Text==""||
-                txtManagement.Text ==""||txtNumber.Text==""||txtOrigin.Text==""||txtSerial.Text==""||txtTruck.Text==""||txtType.Text==""||
-                txtUserID.SelectedItem == null||txtValue.Text=="")
+            if (txtCarTag.Text == "" || txtCertificateDriver.Text == "" || txtDate.Text == "" || txtDestination.Text == "" || txtDriver.Text == "" ||
+                txtManagement.Text == "" || txtNumber.Text == "" || txtOrigin.Text == "" || txtSerial.Text == "" || txtTruck.Text == "" || txtType.Text == "" ||
+                txtUserID.SelectedItem == null || txtValue.Text == "")
             {
                 MessageBox.Show("اطلاعات را به صورت کامل وارد نمایید.", "خطا در ورود اطلاعات", MessageBoxButtons.OK);
                 return;
@@ -71,17 +75,56 @@ namespace DraftProject.Draft
             }
         }
 
-        //private void setNulls(params TextBox[] textBoxes)
-        //{
-        //    foreach (var item in textBoxes)
-        //    {
-        //        item.Text = "";
-        //    }
-        //}
+        private void setElementsValue(DraftModel model)
+        {
+            txtCarTag.Text = model.CarTag;
+            txtCertificateDriver.Text = model.CertificateDriver;
+            txtDate.Text = model.Date;
+            txtDestination.Text = model.Destination;
+            txtDriver.Text = model.Driver;
+            txtManagement.Text = model.Management;
+            txtNumber.Text = model.Number.ToString();
+            txtOrigin.Text = model.Origin;
+            txtSerial.Text = model.Serial;
+            txtTruck.Text = model.Truck;
+            txtType.Text = model.Type;
+            txtValue.Text = model.Value.ToString();
+            int index = 0;
+            foreach (var item in txtUserID.Items)
+            {
+                var ItemModel = item as ItemModel;
+                if (ItemModel.ID == model.UserID)
+                {
+                    break;
+                }
+                index++;
+            }
+            txtUserID.SelectedIndex = index;
+        }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (txtCarTag.Text == "" || txtCertificateDriver.Text == "" || txtDate.Text == "" || txtDestination.Text == "" || txtDriver.Text == "" ||
+                txtManagement.Text == "" || txtNumber.Text == "" || txtOrigin.Text == "" || txtSerial.Text == "" || txtTruck.Text == "" || txtType.Text == "" ||
+                txtUserID.SelectedItem == null || txtValue.Text == "")
+            {
+                MessageBox.Show("اطلاعات را به صورت کامل وارد نمایید.", "خطا در ورود اطلاعات", MessageBoxButtons.OK);
+                return;
+            }
 
+
+            var paramValues = bindFields();
+            if (MessageBox.Show("آیا اطلاعات ذخیره گردد. ", "ثبت اطلاعات", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DbContext context = new DbContext();
+                context.UpdateUser(DatabaseConstantData.DraftTable, DraftID, paramValues);
+                MessageBox.Show("اطلاعات با موفقیت ثبت گردید", "ثبت اطلاعات", MessageBoxButtons.OK);
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void DraftRegister_Load(object sender, EventArgs e)
@@ -96,6 +139,16 @@ namespace DraftProject.Draft
                 model.Name = item.name + " " + item.family;
                 model.ID = item.ID;
                 txtUserID.Items.Add(model);
+            }
+
+
+            if (isForUpdate == true)
+            {
+                btnUpdate.Enabled = true;
+                btnRegister.Enabled = false;
+                DraftCrud draftCrud = new DraftCrud();
+                var draft = draftCrud.findDraftByID(DraftID);
+                setElementsValue(draft);
             }
 
 
@@ -151,6 +204,13 @@ namespace DraftProject.Draft
             frm.Show();
             this.Close();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 
 }

@@ -37,11 +37,17 @@ namespace DraftProject.users
 
         private void button1_Click(object sender, EventArgs e)
         {
+            searchGrid();
+            
+        }
+
+        private void searchGrid()
+        {
             var Name = txtName.Text;
             var Family = txtFamily.Text;
             var UserName = txtUserName.Text;
             var userService = new UsersCrud();
-            var data = userService.findUsers(Name,Family,UserName);
+            var data = userService.findUsers(Name, Family, UserName);
             grdUsers.DataSource = data;
             grdUsers.Columns[0].HeaderText = "شناسه کاربر";
             grdUsers.Columns[1].HeaderText = "نام";
@@ -50,7 +56,6 @@ namespace DraftProject.users
             grdUsers.Columns[4].HeaderText = "نام کاربری";
             grdUsers.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             grdUsers.Columns[5].Visible = false;
-            grdUsers.CellMouseDoubleClick += btnLogin_Click;
         }
 
         private void btnLogin_Click(object sender, DataGridViewCellMouseEventArgs e) {
@@ -58,11 +63,12 @@ namespace DraftProject.users
            Int32 ID = Int32.Parse(row.Cells["ID"].Value.ToString());
             RegisterUserForm registerUserForm = new RegisterUserForm(true, ID);
             registerUserForm.ShowDialog(this);
+            searchGrid();
         }
 
         private void UpdateUsers_Load(object sender, EventArgs e)
         {
-
+            grdUsers.CellMouseDoubleClick += btnLogin_Click;
         }
 
         private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)

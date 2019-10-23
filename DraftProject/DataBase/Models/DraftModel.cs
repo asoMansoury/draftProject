@@ -7,6 +7,18 @@ namespace DraftProject.DataBase.Models
 {
     public class DraftModel
     {
+        public DraftModel()
+        {
+            Serial = "";
+            Management = "";
+            Truck = "";
+            CarTag = "";
+            Driver = "";
+            CertificateDriver = "";
+            Type = "";
+            Origin = "";
+            Destination = "";
+        }
         public int ID { get; set; }
         public int Number { get; set; }
         public string Serial { get; set; }
@@ -20,6 +32,7 @@ namespace DraftProject.DataBase.Models
         public string Origin { get; set; }
         public string Destination { get; set; }
         public int UserID { get; set; }
+        public string Date { get; set; }
 
     }
 }

@@ -107,14 +107,14 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر جدید";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
@@ -415,6 +415,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ورود اطلاعات حواله";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // panel2
             // 
