@@ -113,14 +113,16 @@
             // ایجادحوالهجدیدToolStripMenuItem
             // 
             this.ایجادحوالهجدیدToolStripMenuItem.Name = "ایجادحوالهجدیدToolStripMenuItem";
-            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ایجادحوالهجدیدToolStripMenuItem.Text = "ایجاد حواله جدید";
+            this.ایجادحوالهجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادحوالهجدیدToolStripMenuItem_Click);
             // 
             // ویرایشحوالهToolStripMenuItem
             // 
             this.ویرایشحوالهToolStripMenuItem.Name = "ویرایشحوالهToolStripMenuItem";
-            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ویرایشحوالهToolStripMenuItem.Text = "ویرایش حواله";
+            this.ویرایشحوالهToolStripMenuItem.Click += new System.EventHandler(this.ویرایشحوالهToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 

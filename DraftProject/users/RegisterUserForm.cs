@@ -8,6 +8,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Components;
+using System.Globalization;
+using System.Threading;
+using DraftProject.Draft;
 
 namespace DraftProject.users
 {
@@ -37,7 +42,7 @@ namespace DraftProject.users
             if (MessageBox.Show("آیا اطلاعات ذخیره گردد. ", "ثبت اطلاعات", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DbContext context = new DbContext();
-                context.InsertData(UsersConstantData.UsersTable,  paramValues);
+                context.InsertData(DatabaseConstantData.UsersTable,  paramValues);
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", "ثبت اطلاعات", MessageBoxButtons.OK);
                 txtName.Text = "";
                 txtFamily.Text = "";
@@ -53,11 +58,11 @@ namespace DraftProject.users
 
         private Dictionary<string, string> bindFields() {
             var paramValues = new Dictionary<string, string>();
-            paramValues.Add(UsersConstantData.name, txtName.Text);
-            paramValues.Add(UsersConstantData.Password, txtPassword.Text);
-            paramValues.Add(UsersConstantData.Family, txtFamily.Text);
-            paramValues.Add(UsersConstantData.UserCode, txtUserCode.Text);
-            paramValues.Add(UsersConstantData.UserName, txtUserName.Text);
+            paramValues.Add(DatabaseConstantData.name, txtName.Text);
+            paramValues.Add(DatabaseConstantData.Password, txtPassword.Text);
+            paramValues.Add(DatabaseConstantData.Family, txtFamily.Text);
+            paramValues.Add(DatabaseConstantData.UserCode, txtUserCode.Text);
+            paramValues.Add(DatabaseConstantData.UserName, txtUserName.Text);
             return paramValues;
         }
         private void ثبتکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,7 +116,7 @@ namespace DraftProject.users
             if (MessageBox.Show("آیا اطلاعات ذخیره گردد. ", "ثبت اطلاعات", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DbContext context = new DbContext();
-                context.UpdateUser(UsersConstantData.UsersTable,userID, paramValues);
+                context.UpdateUser(DatabaseConstantData.UsersTable,userID, paramValues);
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", "ثبت اطلاعات", MessageBoxButtons.OK);
                 this.Close();
             }
@@ -119,6 +124,49 @@ namespace DraftProject.users
             {
                 return;
             }
+        }
+
+        StiReport stiReportResearcher;
+
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            DraftRegister frm = new DraftRegister();
+            frm.Show();
+            //stiReportResearcher = new StiReport();
+            //stiReportResearcher.Load(Application.StartupPath + "\\Report.mrt");
+
+
+
+            //StiText txt_user = new StiText();
+            //txt_user = (StiText)stiReportResearcher.GetComponentByName("txtUserName");
+            //txt_user.Text = "کاربر سیستم : منصوری";
+
+            //StiText txt_nemberReport = new StiText();
+            //txt_nemberReport = (StiText)stiReportResearcher.GetComponentByName("txtNumber");
+            //txt_nemberReport.Text = "شماره گزارش : 1122";
+
+            //System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+            //string Date_shamsi = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
+            //StiText txt_date = new StiText();
+            //txt_date = (StiText)stiReportResearcher.GetComponentByName("txtDate");
+            //txt_date.Text = " تاریخ : " + Date_shamsi;
+
+            stiReportResearcher.Show();
+        }
+
+        private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DraftRegister frm = new DraftRegister();
+            frm.Show();
+            this.Close();
+        }
+
+        private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDraft frm = new UpdateDraft();
+            frm.Show();
+            this.Close();
         }
     }
 }

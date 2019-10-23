@@ -1,4 +1,5 @@
 ﻿using DraftProject.DataBase.CRUDSqliLite;
+using DraftProject.Draft;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,6 +63,20 @@ namespace DraftProject.users
         private void UpdateUsers_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DraftRegister frm = new DraftRegister();
+            frm.Show();
+            this.Close();
+        }
+
+        private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDraft frm = new UpdateDraft();
+            frm.Show();
+            this.Close();
         }
     }
 }

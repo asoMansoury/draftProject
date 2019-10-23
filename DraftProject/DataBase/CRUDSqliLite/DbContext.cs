@@ -61,7 +61,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         private void SetConnection()
         {
             sql_con = new SQLiteConnection
-                (@"Data Source = D:\DraftProject\draftProject\DraftProject\DataBase\sqlLiteDbDraft.db; Version = 3; FailIfMissing = True; Foreign Keys = True;", true);
+                (@"Data Source = D:\DrafProject22\draftProject\DraftProject\DataBase\sqlLiteDbDraft.db; Version = 3; FailIfMissing = True; Foreign Keys = True;", true);
         }
 
         private void ExecuteQuery(string txtQuery)

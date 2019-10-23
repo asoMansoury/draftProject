@@ -34,6 +34,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Stimulsoft.Base, Version=2017.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mansoury\Downloads\Telegram Desktop\draftProject-master\draftProject-master\DraftProject\bin\Debug\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2017.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mansoury\Downloads\Telegram Desktop\draftProject-master\draftProject-master\DraftProject\bin\Debug\Stimulsoft.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2017.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mansoury\Downloads\Telegram Desktop\draftProject-master\draftProject-master\DraftProject\bin\Debug\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2017.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mansoury\Downloads\Telegram Desktop\draftProject-master\draftProject-master\DraftProject\bin\Debug\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2017.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\mansoury\Downloads\Telegram Desktop\draftProject-master\draftProject-master\DraftProject\bin\Debug\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -55,13 +75,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\CRUDSqliLite\DbContext.cs" />
+    <Compile Include="DataBase\CRUDSqliLite\DraftCrud.cs" />
+    <Compile Include="DataBase\CRUDSqliLite\Map.cs" />
     <Compile Include="DataBase\CRUDSqliLite\UsersCrud.cs" />
     <Compile Include="DataBase\DraftContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DraftContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\Models\DraftModel.cs" />
+    <Compile Include="DataBase\Models\ItemModel.cs" />
     <Compile Include="DataBase\Models\UsersModel.cs" />
+    <Compile Include="Draft\DraftConstantData.cs" />
+    <Compile Include="Draft\DraftRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Draft\DraftRegister.Designer.cs">
+      <DependentUpon>DraftRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Draft\UpdateDraft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Draft\UpdateDraft.Designer.cs">
+      <DependentUpon>UpdateDraft.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,13 +113,19 @@
     <Compile Include="users\UpdateUsers.Designer.cs">
       <DependentUpon>UpdateUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="users\UsersConstantData.cs" />
+    <Compile Include="users\DatabaseConstantData.cs" />
     <Compile Include="users\RegisterUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="users\RegisterUserForm.Designer.cs">
       <DependentUpon>RegisterUserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Draft\DraftRegister.resx">
+      <DependentUpon>DraftRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Draft\UpdateDraft.resx">
+      <DependentUpon>UpdateDraft.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

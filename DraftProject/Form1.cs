@@ -34,7 +34,7 @@ namespace DraftProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            RegisterUserForm frmUser1 = new RegisterUserForm();
+            Draft.DraftRegister frmUser1 = new Draft.DraftRegister();
             frmUser1.Show();
             this.Hide();
             return;
