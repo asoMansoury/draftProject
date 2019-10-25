@@ -34,10 +34,6 @@ namespace DraftProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            RegisterUserForm frmUser1 = new RegisterUserForm();
-            frmUser1.Show();
-            this.Hide();
-            return;
             var userName = txtUser.Text;
             var password =txtPassword.Text;
             if (userName == ""||
@@ -49,6 +45,8 @@ namespace DraftProject
             var user = userContext.findUser(userName,password);
             if (user!=null)
             {
+                UserLogged.UserID = user.ID;
+                UserLogged.UserName = user.userName;
                 RegisterUserForm frmUser = new RegisterUserForm();
                 frmUser.Show();
                 this.Hide();

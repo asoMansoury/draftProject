@@ -15,6 +15,7 @@ namespace DraftProject.Draft
         public static string Truck = "Truck";
         public static string CarTag = "CarTag";
         public static string Driver = "Driver";
+        public static string IsBackup = "IsBackup";
         public static string CertificateDriver = "CertificateDriver";
         public static string Type = "Type";
         public static string Value = "Value";
@@ -22,5 +23,12 @@ namespace DraftProject.Draft
         public static string Destination = "Destination";
         public static string UserID = "UserID";
         public static string Date = "Date";
+        public static string InsertBy = "InsertBy";
+        public static string InsertDate = "InsertDate";
+        public static string UpdateDate = "UpdateDate";
+        public static string UpdateBy = "UpdateBy";
+        public static string RestoreDate = "RestoreDate";
+        public static string RestoreBy = "RestoreBy";
+
     }
 }

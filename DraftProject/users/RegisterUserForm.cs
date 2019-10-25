@@ -63,6 +63,18 @@ namespace DraftProject.users
             paramValues.Add(DatabaseConstantData.Family, txtFamily.Text);
             paramValues.Add(DatabaseConstantData.UserCode, txtUserCode.Text);
             paramValues.Add(DatabaseConstantData.UserName, txtUserName.Text);
+            paramValues.Add(DatabaseConstantData.IsBackup, false.ToString());
+
+            if (isForUpdate == false)
+            {
+                paramValues.Add(DatabaseConstantData.InsertDate, DateTime.Now.Date.ToString());
+                paramValues.Add(DatabaseConstantData.InsertBy, UserLogged.UserID.ToString());
+            }
+            else
+            {
+                paramValues.Add(DatabaseConstantData.UpdateDate, DateTime.Now.Date.ToString());
+                paramValues.Add(DatabaseConstantData.UpdateBy, UserLogged.UserID.ToString());
+            }
             return paramValues;
         }
         private void ثبتکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)

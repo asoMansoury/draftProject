@@ -167,6 +167,7 @@ namespace DraftProject.Draft
             paramValues.Add(DraftConstantData.Date, txtDate.Text);
             paramValues.Add(DraftConstantData.Destination, txtDestination.Text);
             paramValues.Add(DraftConstantData.Driver, txtDriver.Text);
+            paramValues.Add(DraftConstantData.IsBackup, false.ToString());
             paramValues.Add(DraftConstantData.Management, txtManagement.Text);
             paramValues.Add(DraftConstantData.Number, txtNumber.Text);
             paramValues.Add(DraftConstantData.Origin, txtOrigin.Text);
@@ -176,6 +177,17 @@ namespace DraftProject.Draft
             var selectedUser = txtUserID.SelectedItem as ItemModel;
             paramValues.Add(DraftConstantData.UserID, selectedUser.ID.ToString());
             paramValues.Add(DraftConstantData.Value, txtValue.Text);
+
+
+            if (isForUpdate == false)
+            {
+                paramValues.Add(DraftConstantData.InsertDate, DateTime.Now.Date.ToString());
+                paramValues.Add(DraftConstantData.InsertBy, UserLogged.UserID.ToString());
+            }else
+            {
+                paramValues.Add(DraftConstantData.UpdateDate, DateTime.Now.Date.ToString());
+                paramValues.Add(DraftConstantData.UpdateBy, UserLogged.UserID.ToString());
+            }
             return paramValues;
         }
 
