@@ -101,7 +101,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public List<DraftModel> GetDrafts(string path)
         {
             List<DraftModel> result = new List<DraftModel>();
-            string query = @"SELECT * from Draft";
+            string query = @"SELECT * from Draft IsBackup Is null or IsBackup = false";
             db.SetConnection(path);
             var executeQuery = db.ExecuteQueryForLoading(query);
             if (executeQuery.Rows.Count > 0)
@@ -114,6 +114,13 @@ namespace DraftProject.DataBase.CRUDSqliLite
             }
 
             return null;
+        }
+
+        public void UpdateDraftTabe(string path)
+        {
+            string query = @"Update Draft Set IsBackup = true where IsBackup Is Null or IsBackup = false";
+            db.SetConnection(path);
+            var executeQuery = db.ExecuteQueryForLoading(query);
         }
 
 

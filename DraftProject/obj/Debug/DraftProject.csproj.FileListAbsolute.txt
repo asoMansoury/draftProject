@@ -67,3 +67,11 @@ D:\Projects\SamanProject\DraftProjectNew\draftProject\DraftProject\obj\Debug\Dra
 D:\Projects\SamanProject\DraftProjectNew\draftProject\DraftProject\obj\Debug\DraftProject.users.RegisterUserForm.resources
 D:\Projects\SamanProject\DraftProjectNew\draftProject\DraftProject\obj\Debug\DraftProject.users.UpdateUsers.resources
 D:\Projects\SamanProject\DraftProjectNew\draftProject\DraftProject\obj\Debug\DraftProject.csproj.GenerateResource.Cache
+D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Base.dll
+D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Controls.dll
+D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Controls.Win.dll
+D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Report.dll
+D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Report.Win.dll
+D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.Draft.DraftRegister.resources
+D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.Draft.UpdateDraft.resources
+D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.users.BackupDatabase.resources

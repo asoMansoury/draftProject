@@ -37,6 +37,7 @@
             this.ایجادحوالهجدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ویرایشحوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtUserID = new System.Windows.Forms.ComboBox();
             this.txtDestination = new System.Windows.Forms.TextBox();
@@ -68,7 +69,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,15 +109,15 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر جدید";
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرانToolStripMenuItem
@@ -148,6 +148,13 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
             this.toolStripMenuItem2.Text = "-----------------------------";
+            // 
+            // عملیاتپایگاهدادهToolStripMenuItem
+            // 
+            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -450,13 +457,6 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // عملیاتپایگاهدادهToolStripMenuItem
-            // 
-            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
-            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
-            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
-            // 
             // DraftRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,6 +468,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "DraftRegister";
             this.Text = "DraftRegister";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DraftRegister_FormClosed);
             this.Load += new System.EventHandler(this.DraftRegister_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

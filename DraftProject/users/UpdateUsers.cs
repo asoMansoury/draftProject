@@ -13,13 +13,16 @@ namespace DraftProject.users
 {
     public partial class UpdateUsers : Form
     {
+        private bool isForClosing  =false;
         public UpdateUsers()
         {
             InitializeComponent();
+            isForClosing = true;
         }
 
         private void ایجادکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             RegisterUserForm registerUserForm = new RegisterUserForm();
             registerUserForm.Show();
             this.Close();
@@ -27,12 +30,13 @@ namespace DraftProject.users
 
         private void ویرایشکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            isForClosing = false;
         }
 
         private void UpdateUsers_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+            if ( isForClosing == true)
+                Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +77,7 @@ namespace DraftProject.users
 
         private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             DraftRegister frm = new DraftRegister();
             frm.Show();
             this.Close();
@@ -80,6 +85,7 @@ namespace DraftProject.users
 
         private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             UpdateDraft frm = new UpdateDraft();
             frm.Show();
             this.Close();
@@ -87,6 +93,7 @@ namespace DraftProject.users
 
         private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             BackupDatabase frm = new BackupDatabase();
             frm.ShowDialog(this);
         }

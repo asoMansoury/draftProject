@@ -1,6 +1,8 @@
 ﻿using DraftProject.DataBase.CRUDSqliLite;
 using DraftProject.DataBase.Models;
 using DraftProject.users;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Components;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +14,16 @@ using System.Windows.Forms;
 
 namespace DraftProject.Draft
 {
+
+    
     public partial class UpdateDraft : Form
     {
+        StiReport stiReportResearcher;
+        bool isForClosing = false;
         public UpdateDraft()
         {
             InitializeComponent();
+            isForClosing = true;
         }
 
         private void UpdateDraft_Load(object sender, EventArgs e)
@@ -87,8 +94,85 @@ namespace DraftProject.Draft
 
         private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             BackupDatabase frm = new BackupDatabase();
-            frm.ShowDialog(this);
+            frm.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var currentRow = grdDrafts.CurrentRow;
+            if (currentRow != null)
+            {
+                int ID = Int32.Parse(currentRow.Cells[0].Value.ToString());
+                stiReportResearcher = new StiReport();
+                stiReportResearcher.Load(Application.StartupPath + "\\Report.mrt");
+
+
+
+                StiText txt_user = new StiText();
+                txt_user = (StiText)stiReportResearcher.GetComponentByName("txtUserName");
+                txt_user.Text = "کاربر سیستم : منصوری";
+
+                StiText txt_nemberReport = new StiText();
+                txt_nemberReport = (StiText)stiReportResearcher.GetComponentByName("txtNumber");
+                txt_nemberReport.Text = "شماره گزارش : 1122";
+
+                System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
+                string Date_shamsi = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
+                StiText txt_date = new StiText();
+                txt_date = (StiText)stiReportResearcher.GetComponentByName("txtDate");
+                txt_date.Text = " تاریخ : " + Date_shamsi;
+                stiReportResearcher.Show();
+            }
+            else
+            {
+                MessageBox.Show("لطفا رکورد مورد نظر خود را انتخاب نمایید.");
+            }
+        }
+
+        private void grdDrafts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UpdateDraft_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if ( isForClosing == true)
+                Application.Exit();
+        }
+
+        private void ایجادکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isForClosing = false;
+            RegisterUserForm frm = new RegisterUserForm();
+            frm.Show();
+            this.Close();
+        }
+
+        private void ویرایشکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isForClosing = false;
+            UpdateUsers frm = new UpdateUsers();
+            frm.Show();
+            this.Close();
+        }
+
+        private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isForClosing = false;
+            DraftRegister frm = new DraftRegister();
+            frm.Show();
+            this.Close();
+        }
+
+        private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isForClosing = false;
+            UpdateDraft frm = new UpdateDraft();
+            frm.Show();
+            this.Close();
         }
     }
 }

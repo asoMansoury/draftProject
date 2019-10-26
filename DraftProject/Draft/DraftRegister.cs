@@ -17,11 +17,13 @@ namespace DraftProject.Draft
     {
         private bool isForUpdate = false;
         private int DraftID = 0;
+        bool isForClosing = false;
         public DraftRegister(bool isForUpdate = false, int DraftID = 0)
         {
             InitializeComponent();
             this.isForUpdate = isForUpdate;
             this.DraftID = DraftID;
+            isForClosing = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -193,11 +195,12 @@ namespace DraftProject.Draft
 
         private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            isForClosing = false;
         }
 
         private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             UpdateDraft frm = new UpdateDraft();
             frm.Show();
             this.Close();
@@ -205,6 +208,7 @@ namespace DraftProject.Draft
 
         private void ایجادکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             RegisterUserForm frm = new RegisterUserForm();
             frm.Show();
             this.Close();
@@ -212,6 +216,7 @@ namespace DraftProject.Draft
 
         private void ویرایشکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             UpdateUsers frm = new UpdateUsers();
             frm.Show();
             this.Close();
@@ -224,8 +229,15 @@ namespace DraftProject.Draft
 
         private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             BackupDatabase frm = new BackupDatabase();
             frm.ShowDialog(this);
+        }
+
+        private void DraftRegister_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (isForUpdate == false&&isForClosing==true)
+                Application.Exit();
         }
     }
 

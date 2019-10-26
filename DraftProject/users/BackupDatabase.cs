@@ -48,7 +48,7 @@ namespace DraftProject.users
                     DraftCrud draftCrud = new DraftCrud();
                     var draftRecords = draftCrud.GetDrafts(path);
                     draftCrud.saveIntoDraftTable(draftRecords);
-
+                    draftCrud.UpdateDraftTabe(path);
                     UsersCrud usersCrud = new UsersCrud();
                     var userRecords = usersCrud.GetUsers(path);
                     usersCrud.saveIntoDraftTable(userRecords);

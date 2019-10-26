@@ -20,11 +20,13 @@ namespace DraftProject.users
     {
         private bool isForUpdate = false;
         private int  userID = 0;
+        bool isForClosing = true;
         public RegisterUserForm(bool isForUpdate=false, int UserID=0)
         {
             InitializeComponent();
             this.isForUpdate = isForUpdate;
             this.userID = UserID;
+            isForClosing = true;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -79,16 +81,17 @@ namespace DraftProject.users
         }
         private void ثبتکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void ایجادکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            isForClosing = false;
         }
 
         private void ویرایشکاربرجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            isForClosing = false;
             UpdateUsers updateUsers = new UpdateUsers();
             updateUsers.Show();
             this.Close();
@@ -138,37 +141,21 @@ namespace DraftProject.users
             }
         }
 
-        StiReport stiReportResearcher;
+
 
 
         private void Button1_Click(object sender, EventArgs e)
         {
             DraftRegister frm = new DraftRegister();
             frm.Show();
-            //stiReportResearcher = new StiReport();
-            //stiReportResearcher.Load(Application.StartupPath + "\\Report.mrt");
 
 
 
-            //StiText txt_user = new StiText();
-            //txt_user = (StiText)stiReportResearcher.GetComponentByName("txtUserName");
-            //txt_user.Text = "کاربر سیستم : منصوری";
-
-            //StiText txt_nemberReport = new StiText();
-            //txt_nemberReport = (StiText)stiReportResearcher.GetComponentByName("txtNumber");
-            //txt_nemberReport.Text = "شماره گزارش : 1122";
-
-            //System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
-            //string Date_shamsi = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
-            //StiText txt_date = new StiText();
-            //txt_date = (StiText)stiReportResearcher.GetComponentByName("txtDate");
-            //txt_date.Text = " تاریخ : " + Date_shamsi;
-
-            stiReportResearcher.Show();
         }
 
         private void ایجادحوالهجدیدToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             DraftRegister frm = new DraftRegister();
             frm.Show();
             this.Close();
@@ -176,6 +163,7 @@ namespace DraftProject.users
 
         private void ویرایشحوالهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             UpdateDraft frm = new UpdateDraft();
             frm.Show();
             this.Close();
@@ -183,9 +171,16 @@ namespace DraftProject.users
 
         private void عملیاتپایگاهدادهToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            isForClosing = false;
             BackupDatabase frm = new BackupDatabase();
             frm.ShowDialog(this);
 
+        }
+
+        private void RegisterUserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (isForUpdate == false && isForClosing == true)
+                Application.Exit();
         }
     }
 }

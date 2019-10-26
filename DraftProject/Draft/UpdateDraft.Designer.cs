@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.sdf = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grdDrafts = new System.Windows.Forms.DataGridView();
@@ -224,15 +225,26 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Location = new System.Drawing.Point(279, 237);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(228, 47);
             this.panel1.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(23, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "تهیه گزارش";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(80, 15);
+            this.btnSearch.Location = new System.Drawing.Point(120, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 0;
@@ -258,12 +270,14 @@
             this.grdDrafts.AllowUserToResizeRows = false;
             this.grdDrafts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDrafts.Location = new System.Drawing.Point(3, 12);
+            this.grdDrafts.MultiSelect = false;
             this.grdDrafts.Name = "grdDrafts";
             this.grdDrafts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdDrafts.RowHeadersWidth = 54;
             this.grdDrafts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdDrafts.Size = new System.Drawing.Size(741, 276);
             this.grdDrafts.TabIndex = 0;
+            this.grdDrafts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDrafts_CellContentClick);
             // 
             // panel2
             // 
@@ -308,14 +322,16 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
+            this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر جدید";
+            this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرانToolStripMenuItem
             // 
@@ -329,14 +345,16 @@
             // ایجادحوالهجدیدToolStripMenuItem
             // 
             this.ایجادحوالهجدیدToolStripMenuItem.Name = "ایجادحوالهجدیدToolStripMenuItem";
-            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ایجادحوالهجدیدToolStripMenuItem.Text = "ایجاد حواله جدید";
+            this.ایجادحوالهجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادحوالهجدیدToolStripMenuItem_Click);
             // 
             // ویرایشحوالهToolStripMenuItem
             // 
             this.ویرایشحوالهToolStripMenuItem.Name = "ویرایشحوالهToolStripMenuItem";
-            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ویرایشحوالهToolStripMenuItem.Text = "ویرایش حواله";
+            this.ویرایشحوالهToolStripMenuItem.Click += new System.EventHandler(this.ویرایشحوالهToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -362,6 +380,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "UpdateDraft";
             this.Text = "UpdateDraft";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateDraft_FormClosed);
             this.Load += new System.EventHandler(this.UpdateDraft_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -410,5 +429,6 @@
         private System.Windows.Forms.TextBox txtOrigin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

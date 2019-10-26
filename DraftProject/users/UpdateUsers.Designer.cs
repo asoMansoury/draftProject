@@ -37,6 +37,7 @@
             this.ایجادحوالهجدیدToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ویرایشحوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grdUsers = new System.Windows.Forms.DataGridView();
-            this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,15 +92,15 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر جدید";
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرانToolStripMenuItem
@@ -131,6 +131,13 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
             this.toolStripMenuItem2.Text = "-----------------------------";
+            // 
+            // عملیاتپایگاهدادهToolStripMenuItem
+            // 
+            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
+            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -246,13 +253,6 @@
             this.grdUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdUsers.Size = new System.Drawing.Size(741, 276);
             this.grdUsers.TabIndex = 0;
-            // 
-            // عملیاتپایگاهدادهToolStripMenuItem
-            // 
-            this.عملیاتپایگاهدادهToolStripMenuItem.Name = "عملیاتپایگاهدادهToolStripMenuItem";
-            this.عملیاتپایگاهدادهToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
-            this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
             // 
             // UpdateUsers
             // 
