@@ -13,6 +13,7 @@ using Stimulsoft.Report.Components;
 using System.Globalization;
 using System.Threading;
 using DraftProject.Draft;
+using DraftProject.Common;
 
 namespace DraftProject.users
 {
@@ -61,7 +62,7 @@ namespace DraftProject.users
         private Dictionary<string, string> bindFields() {
             var paramValues = new Dictionary<string, string>();
             paramValues.Add(DatabaseConstantData.name, txtName.Text);
-            paramValues.Add(DatabaseConstantData.Password, txtPassword.Text);
+            paramValues.Add(DatabaseConstantData.Password, CommonUtils.HashingPassword(txtPassword.Text));
             paramValues.Add(DatabaseConstantData.Family, txtFamily.Text);
             paramValues.Add(DatabaseConstantData.UserCode, txtUserCode.Text);
             paramValues.Add(DatabaseConstantData.UserName, txtUserName.Text);

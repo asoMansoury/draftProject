@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CommonUtils.cs" />
+    <Compile Include="Common\DateTimeExtensions.cs" />
     <Compile Include="DataBase\CRUDSqliLite\DbContext.cs" />
     <Compile Include="DataBase\CRUDSqliLite\DraftCrud.cs" />
     <Compile Include="DataBase\CRUDSqliLite\Map.cs" />

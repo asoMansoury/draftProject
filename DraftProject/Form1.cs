@@ -1,4 +1,5 @@
-﻿using DraftProject.DataBase;
+﻿using DraftProject.Common;
+using DraftProject.DataBase;
 using DraftProject.DataBase.CRUDSqliLite;
 using DraftProject.users;
 using System;
@@ -42,11 +43,12 @@ namespace DraftProject
                 return;
             }
             var userContext = new UsersCrud();
-            var user = userContext.findUser(userName,password);
+            var user = userContext.findUser(userName,CommonUtils.HashingPassword(password));
             if (user!=null)
             {
                 UserLogged.UserID = user.ID;
                 UserLogged.UserName = user.userName;
+                CommonUtils.uniqeUserID = user.ID.ToString();
                 RegisterUserForm frmUser = new RegisterUserForm();
                 frmUser.Show();
                 this.Hide();

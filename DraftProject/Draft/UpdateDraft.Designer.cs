@@ -33,19 +33,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtOrigin = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtType = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtDriver = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCarTag = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSerial = new System.Windows.Forms.TextBox();
             this.txtManagement = new System.Windows.Forms.TextBox();
-            this.txtDate = new System.Windows.Forms.TextBox();
+            this.txtFromDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sdf = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrintAll = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,30 +60,36 @@
             this.ویرایشحوالهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.txtToDate = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDrafts)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel3.Controls.Add(this.txtToDate);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtDestination);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtOrigin);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.txtType);
-            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtDriver);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtCarTag);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtSerial);
             this.panel3.Controls.Add(this.txtManagement);
-            this.panel3.Controls.Add(this.txtDate);
+            this.panel3.Controls.Add(this.txtFromDate);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.sdf);
@@ -125,22 +130,6 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "مبدا";
             // 
-            // txtType
-            // 
-            this.txtType.Location = new System.Drawing.Point(33, 89);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(272, 20);
-            this.txtType.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(322, 96);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "نوع";
-            // 
             // txtDriver
             // 
             this.txtDriver.Location = new System.Drawing.Point(398, 89);
@@ -159,7 +148,7 @@
             // 
             // txtCarTag
             // 
-            this.txtCarTag.Location = new System.Drawing.Point(33, 49);
+            this.txtCarTag.Location = new System.Drawing.Point(33, 93);
             this.txtCarTag.Name = "txtCarTag";
             this.txtCarTag.Size = new System.Drawing.Size(272, 20);
             this.txtCarTag.TabIndex = 12;
@@ -167,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(322, 56);
+            this.label1.Location = new System.Drawing.Point(322, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 11;
@@ -187,21 +176,21 @@
             this.txtManagement.Size = new System.Drawing.Size(272, 20);
             this.txtManagement.TabIndex = 9;
             // 
-            // txtDate
+            // txtFromDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(398, 53);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(271, 20);
-            this.txtDate.TabIndex = 10;
+            this.txtFromDate.Location = new System.Drawing.Point(398, 53);
+            this.txtFromDate.Name = "txtFromDate";
+            this.txtFromDate.Size = new System.Drawing.Size(271, 20);
+            this.txtFromDate.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(689, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "تاریخ";
+            this.label3.Text = "از تاریخ";
             // 
             // label2
             // 
@@ -225,16 +214,27 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnPrintAll);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Location = new System.Drawing.Point(279, 237);
+            this.panel1.Location = new System.Drawing.Point(253, 237);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 47);
+            this.panel1.Size = new System.Drawing.Size(275, 47);
             this.panel1.TabIndex = 9;
+            // 
+            // btnPrintAll
+            // 
+            this.btnPrintAll.Location = new System.Drawing.Point(17, 13);
+            this.btnPrintAll.Name = "btnPrintAll";
+            this.btnPrintAll.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintAll.TabIndex = 13;
+            this.btnPrintAll.Text = "گزارش کامل";
+            this.btnPrintAll.UseVisualStyleBackColor = true;
+            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 13);
+            this.button1.Location = new System.Drawing.Point(98, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -244,7 +244,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(120, 13);
+            this.btnSearch.Location = new System.Drawing.Point(179, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 0;
@@ -269,13 +269,13 @@
             this.grdDrafts.AllowUserToDeleteRows = false;
             this.grdDrafts.AllowUserToResizeRows = false;
             this.grdDrafts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDrafts.Location = new System.Drawing.Point(3, 12);
+            this.grdDrafts.Location = new System.Drawing.Point(3, 3);
             this.grdDrafts.MultiSelect = false;
             this.grdDrafts.Name = "grdDrafts";
             this.grdDrafts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdDrafts.RowHeadersWidth = 54;
             this.grdDrafts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grdDrafts.Size = new System.Drawing.Size(741, 276);
+            this.grdDrafts.Size = new System.Drawing.Size(741, 260);
             this.grdDrafts.TabIndex = 0;
             this.grdDrafts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDrafts_CellContentClick);
             // 
@@ -283,9 +283,9 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel2.Controls.Add(this.grdDrafts);
-            this.panel2.Location = new System.Drawing.Point(1, 290);
+            this.panel2.Location = new System.Drawing.Point(1, 339);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(747, 300);
+            this.panel2.Size = new System.Drawing.Size(747, 266);
             this.panel2.TabIndex = 10;
             // 
             // menuStrip1
@@ -322,14 +322,14 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر جدید";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
@@ -345,14 +345,14 @@
             // ایجادحوالهجدیدToolStripMenuItem
             // 
             this.ایجادحوالهجدیدToolStripMenuItem.Name = "ایجادحوالهجدیدToolStripMenuItem";
-            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ایجادحوالهجدیدToolStripMenuItem.Text = "ایجاد حواله جدید";
             this.ایجادحوالهجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادحوالهجدیدToolStripMenuItem_Click);
             // 
             // ویرایشحوالهToolStripMenuItem
             // 
             this.ویرایشحوالهToolStripMenuItem.Name = "ویرایشحوالهToolStripMenuItem";
-            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ویرایشحوالهToolStripMenuItem.Text = "ویرایش حواله";
             this.ویرایشحوالهToolStripMenuItem.Click += new System.EventHandler(this.ویرایشحوالهToolStripMenuItem_Click);
             // 
@@ -369,15 +369,64 @@
             this.عملیاتپایگاهدادهToolStripMenuItem.Text = "عملیات پایگاه داده";
             this.عملیاتپایگاهدادهToolStripMenuItem.Click += new System.EventHandler(this.عملیاتپایگاهدادهToolStripMenuItem_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel4.Controls.Add(this.btnNext);
+            this.panel4.Controls.Add(this.btnPrev);
+            this.panel4.Location = new System.Drawing.Point(279, 290);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(228, 46);
+            this.panel4.TabIndex = 13;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(23, 13);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 12;
+            this.btnNext.Text = "صفحه بعد";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.Enabled = false;
+            this.btnPrev.Location = new System.Drawing.Point(120, 13);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPrev.TabIndex = 0;
+            this.btnPrev.Text = "صفحه قبلی";
+            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // txtToDate
+            // 
+            this.txtToDate.Location = new System.Drawing.Point(33, 56);
+            this.txtToDate.Name = "txtToDate";
+            this.txtToDate.Size = new System.Drawing.Size(271, 20);
+            this.txtToDate.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(324, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "تا تاریخ";
+            // 
             // UpdateDraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 587);
+            this.ClientSize = new System.Drawing.Size(746, 604);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
             this.Name = "UpdateDraft";
             this.Text = "UpdateDraft";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateDraft_FormClosed);
@@ -390,6 +439,7 @@
             this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +450,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtSerial;
         private System.Windows.Forms.TextBox txtManagement;
-        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.TextBox txtFromDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label sdf;
@@ -422,13 +472,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCarTag;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtType;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtOrigin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnPrintAll;
+        private System.Windows.Forms.TextBox txtToDate;
+        private System.Windows.Forms.Label label5;
     }
 }

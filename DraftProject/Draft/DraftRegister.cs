@@ -1,4 +1,5 @@
-﻿using DraftProject.DataBase.CRUDSqliLite;
+﻿using DraftProject.Common;
+using DraftProject.DataBase.CRUDSqliLite;
 using DraftProject.DataBase.Models;
 using DraftProject.users;
 using System;
@@ -41,12 +42,22 @@ namespace DraftProject.Draft
                 return;
             }
 
+
+            if (ChekDateIsValid() == false)
+                return;
+            if (CheckIsCarTagValid() == false)
+                return;
+
             var paramValues = bindFields();
             if (MessageBox.Show("آیا اطلاعات ذخیره گردد. ", "ثبت اطلاعات", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DbContext context = new DbContext();
                 context.InsertData(DatabaseConstantData.DraftTable, paramValues);
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", "ثبت اطلاعات", MessageBoxButtons.OK);
+                DraftCrud draftCrud = new DraftCrud();
+                var draft = draftCrud.findDraftByNumber(txtNumber.Text);
+                var stiReport =CommonUtils.ShowReport(draft.ID);
+                stiReport.Show(); 
                 List<TextBox> textBoxes = new List<TextBox>();
                 textBoxes.Add(txtCarTag);
                 textBoxes.Add(txtCertificateDriver);
@@ -57,8 +68,6 @@ namespace DraftProject.Draft
                 textBoxes.Add(txtNumber);
                 textBoxes.Add(txtOrigin);
                 textBoxes.Add(txtSerial);
-                textBoxes.Add(txtTruck);
-                textBoxes.Add(txtType);
                 textBoxes.Add(txtValue);
                 setNullToTextBox(textBoxes);
             }
@@ -102,6 +111,30 @@ namespace DraftProject.Draft
                 index++;
             }
             txtUserID.SelectedIndex = index;
+
+            index = 0;
+            foreach (var item in txtTruck.Items)
+            {
+                var ItemModel = item as ItemModel;
+                if (ItemModel.ID.ToString() == model.TruckID)
+                {
+                    break;
+                }
+                index++;
+            }
+            txtTruck.SelectedIndex = index;
+
+            index = 0;
+            foreach (var item in txtType.Items)
+            {
+                var ItemModel = item as ItemModel;
+                if (ItemModel.ID.ToString() == model.TypeID)
+                {
+                    break;
+                }
+                index++;
+            }
+            txtType.SelectedIndex = index;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -114,7 +147,11 @@ namespace DraftProject.Draft
                 return;
             }
 
-
+            if (ChekDateIsValid() == false)
+                return;
+            if (CheckIsCarTagValid() == false)
+                return;
+            
             var paramValues = bindFields();
             if (MessageBox.Show("آیا اطلاعات ذخیره گردد. ", "ثبت اطلاعات", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -143,6 +180,20 @@ namespace DraftProject.Draft
                 txtUserID.Items.Add(model);
             }
 
+            txtTruck.DisplayMember = "Name";
+            txtTruck.ValueMember = "ID";
+            foreach (var item in CommonUtils.getTrucksType())
+            {
+                txtTruck.Items.Add(item);
+            }
+
+            txtType.DisplayMember = "Name";
+            txtType.ValueMember = "ID";
+            foreach (var item in CommonUtils.getTypes())
+            {
+                txtType.Items.Add(item);
+            }
+
 
             if (isForUpdate == true)
             {
@@ -154,6 +205,13 @@ namespace DraftProject.Draft
             }
 
 
+            if (isForUpdate == false)
+            {
+                txtNumber.Text = CommonUtils.generateRandumNumber();
+                txtOrigin.Text = "زرند";
+                txtDestination.Text = "صبا فولاد";
+            }
+                
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -166,7 +224,7 @@ namespace DraftProject.Draft
             var paramValues = new Dictionary<string, string>();
             paramValues.Add(DraftConstantData.CarTag, txtCarTag.Text);
             paramValues.Add(DraftConstantData.CertificateDriver, txtCertificateDriver.Text);
-            paramValues.Add(DraftConstantData.Date, txtDate.Text);
+            paramValues.Add(DraftConstantData.Date,CommonUtils.ConvertPersianToMiladiDate( txtDate.Text).ToShortDateString());
             paramValues.Add(DraftConstantData.Destination, txtDestination.Text);
             paramValues.Add(DraftConstantData.Driver, txtDriver.Text);
             paramValues.Add(DraftConstantData.IsBackup, false.ToString());
@@ -174,8 +232,11 @@ namespace DraftProject.Draft
             paramValues.Add(DraftConstantData.Number, txtNumber.Text);
             paramValues.Add(DraftConstantData.Origin, txtOrigin.Text);
             paramValues.Add(DraftConstantData.Serial, txtSerial.Text);
-            paramValues.Add(DraftConstantData.Truck, txtTruck.Text);
-            paramValues.Add(DraftConstantData.Type, txtType.Text);
+
+            var selectedTruck = txtTruck.SelectedItem as ItemModel;
+            paramValues.Add(DraftConstantData.Truck, selectedTruck.ID.ToString());
+            var selectedType = txtType.SelectedItem as ItemModel;
+            paramValues.Add(DraftConstantData.Type, selectedType.ID.ToString());
             var selectedUser = txtUserID.SelectedItem as ItemModel;
             paramValues.Add(DraftConstantData.UserID, selectedUser.ID.ToString());
             paramValues.Add(DraftConstantData.Value, txtValue.Text);
@@ -238,6 +299,67 @@ namespace DraftProject.Draft
         {
             if (isForUpdate == false&&isForClosing==true)
                 Application.Exit();
+        }
+
+        private void txtDate_LostFocus(object sender, EventArgs e)
+        {
+            if (ChekDateIsValid() == false)
+                return;
+
+            
+        }
+
+        private bool ChekDateIsValid()
+        {
+            string Date = txtDate.Text;
+            try
+            {
+                DateTime dt = DateTime.Parse(Date);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("فرمت تاریخ باید به صورت روبرو و شمسی باشد." + " YYYY/MM/DD");
+                return false;   
+            }
+            return true;
+        }
+
+        private void txtCarTag_LostFocus(object sender, EventArgs e)
+        {
+            if(CheckIsCarTagValid() == false){
+                return;
+            }
+        }
+
+        private bool CheckIsCarTagValid()
+        {
+            if (CommonUtils.CheckRegex(txtCarTag.Text, @"\d{2}.{1}\d{3}-\d{2}") == false)
+            {
+                MessageBox.Show("فرمت پلاک وارد شده میباشد به صورت روبرو باشد. : NNWNNN-NN");
+                return false;
+            }
+            return true;
+        }
+
+        private void txtUserID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValue_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 

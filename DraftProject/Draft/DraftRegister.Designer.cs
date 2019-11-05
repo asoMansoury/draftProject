@@ -39,15 +39,15 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtType = new System.Windows.Forms.ComboBox();
+            this.txtTruck = new System.Windows.Forms.ComboBox();
             this.txtUserID = new System.Windows.Forms.ComboBox();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.txtOrigin = new System.Windows.Forms.TextBox();
             this.txtValue = new System.Windows.Forms.TextBox();
-            this.txtType = new System.Windows.Forms.TextBox();
             this.txtCertificateDriver = new System.Windows.Forms.TextBox();
             this.txtDriver = new System.Windows.Forms.TextBox();
             this.txtCarTag = new System.Windows.Forms.TextBox();
-            this.txtTruck = new System.Windows.Forms.TextBox();
             this.txtManagement = new System.Windows.Forms.TextBox();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.txtSerial = new System.Windows.Forms.TextBox();
@@ -109,14 +109,14 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
@@ -159,15 +159,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.txtType);
+            this.panel1.Controls.Add(this.txtTruck);
             this.panel1.Controls.Add(this.txtUserID);
             this.panel1.Controls.Add(this.txtDestination);
             this.panel1.Controls.Add(this.txtOrigin);
             this.panel1.Controls.Add(this.txtValue);
-            this.panel1.Controls.Add(this.txtType);
             this.panel1.Controls.Add(this.txtCertificateDriver);
             this.panel1.Controls.Add(this.txtDriver);
             this.panel1.Controls.Add(this.txtCarTag);
-            this.panel1.Controls.Add(this.txtTruck);
             this.panel1.Controls.Add(this.txtManagement);
             this.panel1.Controls.Add(this.txtDate);
             this.panel1.Controls.Add(this.txtSerial);
@@ -190,6 +190,24 @@
             this.panel1.Size = new System.Drawing.Size(680, 280);
             this.panel1.TabIndex = 6;
             // 
+            // txtType
+            // 
+            this.txtType.FormattingEnabled = true;
+            this.txtType.Location = new System.Drawing.Point(389, 170);
+            this.txtType.Name = "txtType";
+            this.txtType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtType.Size = new System.Drawing.Size(246, 21);
+            this.txtType.TabIndex = 25;
+            // 
+            // txtTruck
+            // 
+            this.txtTruck.FormattingEnabled = true;
+            this.txtTruck.Location = new System.Drawing.Point(389, 102);
+            this.txtTruck.Name = "txtTruck";
+            this.txtTruck.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTruck.Size = new System.Drawing.Size(246, 21);
+            this.txtTruck.TabIndex = 24;
+            // 
             // txtUserID
             // 
             this.txtUserID.FormattingEnabled = true;
@@ -198,6 +216,7 @@
             this.txtUserID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserID.Size = new System.Drawing.Size(246, 21);
             this.txtUserID.TabIndex = 7;
+            this.txtUserID.SelectedIndexChanged += new System.EventHandler(this.txtUserID_SelectedIndexChanged);
             // 
             // txtDestination
             // 
@@ -219,13 +238,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(246, 20);
             this.txtValue.TabIndex = 21;
-            // 
-            // txtType
-            // 
-            this.txtType.Location = new System.Drawing.Point(389, 171);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(246, 20);
-            this.txtType.TabIndex = 20;
+            this.txtValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValue_KeyPress_1);
             // 
             // txtCertificateDriver
             // 
@@ -245,15 +258,10 @@
             // 
             this.txtCarTag.Location = new System.Drawing.Point(13, 102);
             this.txtCarTag.Name = "txtCarTag";
+            this.txtCarTag.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCarTag.Size = new System.Drawing.Size(246, 20);
             this.txtCarTag.TabIndex = 17;
-            // 
-            // txtTruck
-            // 
-            this.txtTruck.Location = new System.Drawing.Point(389, 102);
-            this.txtTruck.Name = "txtTruck";
-            this.txtTruck.Size = new System.Drawing.Size(246, 20);
-            this.txtTruck.TabIndex = 16;
+            this.txtCarTag.LostFocus += new System.EventHandler(this.txtCarTag_LostFocus);
             // 
             // txtManagement
             // 
@@ -268,6 +276,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(246, 20);
             this.txtDate.TabIndex = 14;
+            this.txtDate.LostFocus += new System.EventHandler(this.txtDate_LostFocus);
             // 
             // txtSerial
             // 
@@ -278,6 +287,7 @@
             // 
             // txtNumber
             // 
+            this.txtNumber.Enabled = false;
             this.txtNumber.Location = new System.Drawing.Point(389, 26);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(246, 20);
@@ -297,7 +307,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(298, 210);
+            this.label12.Location = new System.Drawing.Point(297, 206);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label12.Size = new System.Drawing.Size(31, 13);
@@ -317,12 +327,12 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(298, 174);
+            this.label10.Location = new System.Drawing.Point(269, 174);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 9;
-            this.label10.Text = "مقدار";
+            this.label10.Text = "مقدار(به تن)";
             // 
             // label9
             // 
@@ -501,7 +511,6 @@
         private System.Windows.Forms.TextBox txtCertificateDriver;
         private System.Windows.Forms.TextBox txtDriver;
         private System.Windows.Forms.TextBox txtCarTag;
-        private System.Windows.Forms.TextBox txtTruck;
         private System.Windows.Forms.TextBox txtManagement;
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.TextBox txtSerial;
@@ -518,10 +527,11 @@
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.TextBox txtOrigin;
         private System.Windows.Forms.TextBox txtValue;
-        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
+        private System.Windows.Forms.ComboBox txtTruck;
+        private System.Windows.Forms.ComboBox txtType;
     }
 }

@@ -1,4 +1,5 @@
-﻿using DraftProject.DataBase.CRUDSqliLite;
+﻿using DraftProject.Common;
+using DraftProject.DataBase.CRUDSqliLite;
 using DraftProject.DataBase.Models;
 using DraftProject.users;
 using Stimulsoft.Report;
@@ -18,7 +19,9 @@ namespace DraftProject.Draft
     
     public partial class UpdateDraft : Form
     {
+        private int page = 0;
         StiReport stiReportResearcher;
+        List<DraftModel> resultDrafts = null;
         bool isForClosing = false;
         public UpdateDraft()
         {
@@ -33,30 +36,35 @@ namespace DraftProject.Draft
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            page = 0;
+            btnPrev.Enabled = false;
+            btnNext.Enabled = true;
             searchGrid();
             
 
 
         }
 
-        private void searchGrid()
+        private void searchGrid(int page = 0)
         {
             var Name = txtSerial.Text;
             var Family = txtManagement.Text;
-            var UserName = txtDate.Text;
+            var UserName = txtFromDate.Text;
             var userService = new DraftCrud();
             var model = new DraftModel();
             model.Serial = txtSerial.Text;
             model.Management = txtManagement.Text;
-            model.Date = txtDate.Text;
+            model.Date = txtFromDate.Text;
             model.CarTag = txtCarTag.Text;
             model.Driver = txtDriver.Text;
-            model.Type = txtType.Text;
             model.Origin = txtOrigin.Text;
             model.Destination = txtDestination.Text;
-            var data = userService.findDrafts(model);
-            grdDrafts.DataSource = data;
-            if (data != null)
+            
+            resultDrafts = userService.findDrafts(model,page,txtFromDate.Text,txtToDate.Text);
+            if (resultDrafts == null)
+                btnNext.Enabled = false;
+            grdDrafts.DataSource = resultDrafts;
+            if (resultDrafts != null)
             {
 
                 grdDrafts.Columns[0].HeaderText = "شناسه حواله";
@@ -64,15 +72,17 @@ namespace DraftProject.Draft
                 grdDrafts.Columns[2].HeaderText = "سریال";
                 grdDrafts.Columns[3].HeaderText = "مدیریت";
                 grdDrafts.Columns[4].HeaderText = "کامیون";
-                grdDrafts.Columns[5].HeaderText = "پلاک";
-                grdDrafts.Columns[6].HeaderText = "راننده";
-                grdDrafts.Columns[7].HeaderText = "گواهینامه";
-                grdDrafts.Columns[8].HeaderText = "نوع";
-                grdDrafts.Columns[9].HeaderText = "مقدار";
-                grdDrafts.Columns[10].HeaderText = "مبدا";
-                grdDrafts.Columns[11].HeaderText = "مقصد";
-                grdDrafts.Columns[12].HeaderText = "شناسه کاربر";
-                grdDrafts.Columns[13].HeaderText = "تاریخ";
+                grdDrafts.Columns[5].Visible = false;
+                grdDrafts.Columns[6].HeaderText = "پلاک";
+                grdDrafts.Columns[7].HeaderText = "راننده";
+                grdDrafts.Columns[8].HeaderText = "گواهینامه";
+                grdDrafts.Columns[9].HeaderText = "نوع";
+                grdDrafts.Columns[10].Visible = false;
+                grdDrafts.Columns[11].HeaderText = "مقدار";
+                grdDrafts.Columns[12].HeaderText = "مبدا";
+                grdDrafts.Columns[13].HeaderText = "مقصد";
+                grdDrafts.Columns[14].HeaderText = "شناسه کاربر";
+                grdDrafts.Columns[15].HeaderText = "تاریخ";
             }
         }
 
@@ -106,24 +116,7 @@ namespace DraftProject.Draft
             if (currentRow != null)
             {
                 int ID = Int32.Parse(currentRow.Cells[0].Value.ToString());
-                stiReportResearcher = new StiReport();
-                stiReportResearcher.Load(Application.StartupPath + "\\Report.mrt");
-
-
-
-                StiText txt_user = new StiText();
-                txt_user = (StiText)stiReportResearcher.GetComponentByName("txtUserName");
-                txt_user.Text = "کاربر سیستم : منصوری";
-
-                StiText txt_nemberReport = new StiText();
-                txt_nemberReport = (StiText)stiReportResearcher.GetComponentByName("txtNumber");
-                txt_nemberReport.Text = "شماره گزارش : 1122";
-
-                System.Globalization.PersianCalendar pc = new System.Globalization.PersianCalendar();
-                string Date_shamsi = pc.GetYear(DateTime.Now) + "/" + pc.GetMonth(DateTime.Now) + "/" + pc.GetDayOfMonth(DateTime.Now);
-                StiText txt_date = new StiText();
-                txt_date = (StiText)stiReportResearcher.GetComponentByName("txtDate");
-                txt_date.Text = " تاریخ : " + Date_shamsi;
+                stiReportResearcher = CommonUtils.ShowReport(ID);
                 stiReportResearcher.Show();
             }
             else
@@ -173,6 +166,37 @@ namespace DraftProject.Draft
             UpdateDraft frm = new UpdateDraft();
             frm.Show();
             this.Close();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            page++;
+            searchGrid(page);
+            if (page > 0)
+                btnPrev.Enabled = Enabled;
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if(page>0)
+            {
+                btnNext.Enabled = true;
+                page--;
+                searchGrid(page);
+            }
+            if (page == 0)
+                btnPrev.Enabled = false;
+        }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            if(resultDrafts==null)
+            {
+                MessageBox.Show("رکوردی برای تهیه گزارش انتخاب نشده است","خطا", MessageBoxButtons.OK);
+                return;
+            }
+            var stiReport= CommonUtils.ShowReportList(resultDrafts);
+            stiReport.Show();
         }
     }
 }
