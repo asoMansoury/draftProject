@@ -92,14 +92,14 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
@@ -253,6 +253,7 @@
             this.grdUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdUsers.Size = new System.Drawing.Size(741, 276);
             this.grdUsers.TabIndex = 0;
+            this.grdUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsers_CellContentClick);
             // 
             // UpdateUsers
             // 

@@ -35,6 +35,12 @@ namespace DraftProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            var userContext = new UsersCrud();
+            if (userContext.CheckProgramIsActive()==false){
+                MessageBox.Show("برنامه قفل می باشد، لطفا برای فعال سازی برنامه کد خریداری شده را وارد نمایید.");
+                button1.Enabled = true;
+                return;
+            }
             var userName = txtUser.Text;
             var password =txtPassword.Text;
             if (userName == ""||
@@ -42,7 +48,7 @@ namespace DraftProject
                 MessageBox.Show("نام کاربر یا کلمه عبور وارد نشده است","ورود",MessageBoxButtons.OK);
                 return;
             }
-            var userContext = new UsersCrud();
+            
             var user = userContext.findUser(userName,CommonUtils.HashingPassword(password));
             if (user!=null)
             {
@@ -65,6 +71,15 @@ namespace DraftProject
         private void txtUser_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ActiveProgram activeProgram = new ActiveProgram();
+            activeProgram.ShowDialog(this);
+            if (activeProgram.isActive == true) {
+                button1.Enabled = false;
+            }
         }
     }
 }

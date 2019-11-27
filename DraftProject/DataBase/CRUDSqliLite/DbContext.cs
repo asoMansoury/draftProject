@@ -97,6 +97,18 @@ namespace DraftProject.DataBase.CRUDSqliLite
             return DT;
         }
 
+        public bool ActiveSecretCode(string Key)
+        {
+            string query = @"Update SecretKeys Set IsActive = true where Key  = '" + Key + "'";
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+            sql_cmd.CommandText = query;
+            sql_cmd.Prepare();
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+            return true;
+        }
 
 
         public void UpdateUser(string TableName,int ID, Dictionary<string, string> parameters)

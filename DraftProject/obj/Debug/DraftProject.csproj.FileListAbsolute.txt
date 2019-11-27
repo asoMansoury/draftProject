@@ -75,3 +75,4 @@ D:\DraftProject\draftProject\DraftProject\bin\Debug\Stimulsoft.Report.Win.dll
 D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.Draft.DraftRegister.resources
 D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.Draft.UpdateDraft.resources
 D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.users.BackupDatabase.resources
+D:\DraftProject\draftProject\DraftProject\obj\Debug\DraftProject.ActiveProgram.resources

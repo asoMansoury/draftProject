@@ -87,6 +87,7 @@ namespace DraftProject.Draft
         }
 
 
+
         private void btnUpdate_DoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var row = grdDrafts.Rows[e.RowIndex];
@@ -190,12 +191,32 @@ namespace DraftProject.Draft
 
         private void btnPrintAll_Click(object sender, EventArgs e)
         {
-            if(resultDrafts==null)
+            var Name = txtSerial.Text;
+            var Family = txtManagement.Text;
+            var UserName = txtFromDate.Text;
+            var userService = new DraftCrud();
+            var model = new DraftModel();
+            model.Serial = txtSerial.Text;
+            model.Management = txtManagement.Text;
+            model.Date = txtFromDate.Text;
+            model.CarTag = txtCarTag.Text;
+            model.Driver = txtDriver.Text;
+            model.Origin = txtOrigin.Text;
+            model.Destination = txtDestination.Text;
+
+            var data = userService.findAllDrafts(model, page, txtFromDate.Text, txtToDate.Text);
+            var stiReport = CommonUtils.ShowReportList(data);
+            stiReport.Show();
+        }
+
+        private void btnRows_Click(object sender, EventArgs e)
+        {
+            if (resultDrafts == null)
             {
-                MessageBox.Show("رکوردی برای تهیه گزارش انتخاب نشده است","خطا", MessageBoxButtons.OK);
+                MessageBox.Show("رکوردی برای تهیه گزارش انتخاب نشده است", "خطا", MessageBoxButtons.OK);
                 return;
             }
-            var stiReport= CommonUtils.ShowReportList(resultDrafts);
+            var stiReport = CommonUtils.ShowReportList(resultDrafts);
             stiReport.Show();
         }
     }

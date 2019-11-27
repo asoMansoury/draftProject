@@ -121,6 +121,15 @@ namespace DraftProject.Common
         }
 
 
+        public static int ConvertMiladiToPersianDateGetYear(string Date)
+        {
+
+            DateTime d = DateTime.Parse(Date);
+            PersianCalendar pc = new PersianCalendar();
+            
+            return pc.GetYear(d);
+        }
+
 
         public static string GetEnumDescription(Enum value)
         {

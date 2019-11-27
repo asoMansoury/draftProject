@@ -1,4 +1,5 @@
-﻿using DraftProject.DataBase.Models;
+﻿using DraftProject.Common;
+using DraftProject.DataBase.Models;
 using DraftProject.users;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,45 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public UsersCrud()
         {
             db = new DbContext();
+        }
+
+
+
+        public List<SecretKeyModel> GetAllSecretCodes()
+        {
+            List<SecretKeyModel> result = new List<SecretKeyModel>();
+            var executeQuery = db.LoadData(@"SELECT * FROM SecretKeys");
+            if (executeQuery.Rows.Count > 0)
+                foreach (DataRow item in executeQuery.Rows)
+                {
+                    var model = mapToModelSecret(item);
+                    result.Add(model);
+                }
+
+            return result;
+        }
+
+        
+        public bool CheckProgramIsActive()
+        {
+            List<SecretKeyModel> result = new List<SecretKeyModel>();
+            var executeQuery = db.LoadData(@"SELECT * FROM SecretKeys");
+            if(executeQuery.Rows.Count>0)
+                foreach (DataRow item in executeQuery.Rows)
+                {
+                    var model = mapToModelSecret(item);
+                    result.Add(model);
+                }
+            int Year = CommonUtils.ConvertMiladiToPersianDateGetYear(DateTime.Now.ToString());
+            foreach (var item in result)
+            {
+                if (Int32.Parse(item.FromDate) == Year)
+                {
+                    if (item.IsActive != 0)
+                        return true;
+                }
+            }
+            return false;
         }
 
         public UsersModel findUser(string userName, string password) {
@@ -113,6 +153,16 @@ namespace DraftProject.DataBase.CRUDSqliLite
             result.password = item["Password"].ToString();
             result.userName = item["UserName"].ToString();
             result.ID = Int32.Parse(item["ID"].ToString());
+            return result;
+        }
+
+        private SecretKeyModel mapToModelSecret(DataRow item)
+        {
+            var result = new SecretKeyModel();
+            result.Key = item["Key"].ToString();
+            result.FromDate = item["FromDate"].ToString();
+            result.ToDate = item["ToDate"].ToString();
+            result.IsActive = Int32.Parse(item["IsActive"].ToString());
             return result;
         }
     }

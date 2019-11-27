@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtToDate = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtOrigin = new System.Windows.Forms.TextBox();
@@ -63,8 +65,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
-            this.txtToDate = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnRows = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,6 +74,7 @@
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -97,6 +100,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(747, 168);
             this.panel3.TabIndex = 0;
+            // 
+            // txtToDate
+            // 
+            this.txtToDate.Location = new System.Drawing.Point(33, 56);
+            this.txtToDate.Name = "txtToDate";
+            this.txtToDate.Size = new System.Drawing.Size(271, 20);
+            this.txtToDate.TabIndex = 19;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(324, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "تا تاریخ";
             // 
             // txtDestination
             // 
@@ -214,19 +233,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.btnPrintAll);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Location = new System.Drawing.Point(253, 237);
+            this.panel1.Location = new System.Drawing.Point(421, 236);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 47);
+            this.panel1.Size = new System.Drawing.Size(195, 47);
             this.panel1.TabIndex = 9;
             // 
             // btnPrintAll
             // 
-            this.btnPrintAll.Location = new System.Drawing.Point(17, 13);
+            this.btnPrintAll.Location = new System.Drawing.Point(136, 12);
             this.btnPrintAll.Name = "btnPrintAll";
-            this.btnPrintAll.Size = new System.Drawing.Size(75, 23);
+            this.btnPrintAll.Size = new System.Drawing.Size(102, 23);
             this.btnPrintAll.TabIndex = 13;
             this.btnPrintAll.Text = "گزارش کامل";
             this.btnPrintAll.UseVisualStyleBackColor = true;
@@ -234,7 +252,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(98, 13);
+            this.button1.Location = new System.Drawing.Point(25, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -244,7 +262,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(179, 13);
+            this.btnSearch.Location = new System.Drawing.Point(106, 13);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 0;
@@ -269,7 +287,7 @@
             this.grdDrafts.AllowUserToDeleteRows = false;
             this.grdDrafts.AllowUserToResizeRows = false;
             this.grdDrafts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDrafts.Location = new System.Drawing.Point(3, 3);
+            this.grdDrafts.Location = new System.Drawing.Point(-1, 6);
             this.grdDrafts.MultiSelect = false;
             this.grdDrafts.Name = "grdDrafts";
             this.grdDrafts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -400,27 +418,32 @@
             this.btnPrev.UseVisualStyleBackColor = true;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // txtToDate
+            // panel5
             // 
-            this.txtToDate.Location = new System.Drawing.Point(33, 56);
-            this.txtToDate.Name = "txtToDate";
-            this.txtToDate.Size = new System.Drawing.Size(271, 20);
-            this.txtToDate.TabIndex = 19;
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Controls.Add(this.btnRows);
+            this.panel5.Controls.Add(this.btnPrintAll);
+            this.panel5.Location = new System.Drawing.Point(155, 237);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(241, 47);
+            this.panel5.TabIndex = 14;
             // 
-            // label5
+            // btnRows
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(324, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "تا تاریخ";
+            this.btnRows.Location = new System.Drawing.Point(20, 12);
+            this.btnRows.Name = "btnRows";
+            this.btnRows.Size = new System.Drawing.Size(99, 23);
+            this.btnRows.TabIndex = 14;
+            this.btnRows.Text = "گزارش 10تایی";
+            this.btnRows.UseVisualStyleBackColor = true;
+            this.btnRows.Click += new System.EventHandler(this.btnRows_Click);
             // 
             // UpdateDraft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 604);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
@@ -440,6 +463,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,5 +508,7 @@
         private System.Windows.Forms.Button btnPrintAll;
         private System.Windows.Forms.TextBox txtToDate;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnRows;
     }
 }

@@ -97,5 +97,10 @@ namespace DraftProject.users
             BackupDatabase frm = new BackupDatabase();
             frm.ShowDialog(this);
         }
+
+        private void grdUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActiveProgram.Designer.cs">
+      <DependentUpon>ActiveProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonUtils.cs" />
     <Compile Include="Common\DateTimeExtensions.cs" />
     <Compile Include="DataBase\CRUDSqliLite\DbContext.cs" />
@@ -88,6 +94,7 @@
     <Compile Include="DataBase\Models\DraftModel.cs" />
     <Compile Include="DataBase\Models\ItemModel.cs" />
     <Compile Include="DataBase\Models\UsersModel.cs" />
+    <Compile Include="DataBase\CRUDSqliLite\SecretKeyModel.cs" />
     <Compile Include="Draft\DraftConstantData.cs" />
     <Compile Include="Draft\DraftRegister.cs">
       <SubType>Form</SubType>
@@ -129,6 +136,9 @@
     <Compile Include="users\RegisterUserForm.Designer.cs">
       <DependentUpon>RegisterUserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActiveProgram.resx">
+      <DependentUpon>ActiveProgram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Draft\DraftRegister.resx">
       <DependentUpon>DraftRegister.cs</DependentUpon>
     </EmbeddedResource>

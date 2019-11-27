@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -110,15 +111,27 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnLogin);
             this.panel3.Location = new System.Drawing.Point(65, 112);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 41);
             this.panel3.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(21, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "فعال سازی";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(59, 9);
+            this.btnLogin.Location = new System.Drawing.Point(102, 9);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 0;
@@ -156,6 +169,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button button1;
     }
 }
 

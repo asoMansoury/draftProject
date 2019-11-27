@@ -116,6 +116,51 @@ namespace DraftProject.DataBase.CRUDSqliLite
             return null;
         }
 
+        public List<DraftModel> findAllDrafts(DraftModel draftModel, int page = 0, string FromDate = "", string ToDate = "")
+        {
+            var result = new List<DraftModel>();
+            string query = @"SELECT * from Draft WHERE ID Is NOT NULL ";
+            query += draftModel.Serial != "" ? " AND Serial = '" + draftModel.Serial + "'" : "";
+            query += draftModel.Management != "" ? "AND Management ='" + draftModel.Management + "'" : "";
+
+            query += draftModel.CarTag != "" ? "AND CarTag ='" + draftModel.CarTag + "'" : "";
+
+            query += draftModel.Driver != "" ? "AND Driver ='" + draftModel.Driver + "'" : "";
+            query += draftModel.Type != "" ? "AND Type ='" + draftModel.Type + "'" : "";
+
+            query += draftModel.Origin != "" ? "AND Origin ='" + draftModel.Origin + "'" : "";
+            query += draftModel.Destination != "" ? "AND Destination ='" + draftModel.Destination + "'" : "";
+
+            if (FromDate != "" || ToDate != "")
+            {
+                if (FromDate != "" && ToDate != "")
+                {
+                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) between '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)) + "' and '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)) + "'";
+                }
+                else if (FromDate != "")
+                {
+                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) >= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)) + "'";
+                }
+                else if (ToDate != "")
+                {
+                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) <= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)) + "'";
+                }
+            }
+
+            
+            var executeQuery = db.LoadData(query);
+            if (executeQuery.Rows.Count > 0)
+            {
+                foreach (DataRow item in executeQuery.Rows)
+                {
+                    result.Add(mapToModel(item));
+                }
+                return result;
+            }
+
+            return null;
+        }
+
         private DraftModel mapToModel(DataRow item)
         {
             var result = new DraftModel();
