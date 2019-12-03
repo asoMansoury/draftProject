@@ -35,10 +35,22 @@ namespace DraftProject.Common
 
             StiText Part2 = new StiText();
             Part2 = (StiText)stiReportResearcher.GetComponentByName("Part2");
-            Part2.Text = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(findedDraft.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + findedDraft.CarTag + " به رانندگی " + findedDraft.Driver + " شماره گواهینامه " + findedDraft.CertificateDriver + " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(findedDraft.TypeID)).FirstOrDefault().Name + " به مقدار " + findedDraft.Value + " تن به مقصد " + findedDraft.Destination + "  حضورتان معرفی میگردد";
+            string carrTag = findedDraft.CarTag;
+            string finalCarTag = CartTagFunc(carrTag);
+            Part2.Text = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(findedDraft.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTag + " به رانندگی " + findedDraft.Driver + " شماره گواهینامه " + findedDraft.CertificateDriver + " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(findedDraft.TypeID)).FirstOrDefault().Name + " به مقدار " + findedDraft.Value + " تن به مقصد " + findedDraft.Destination + "  حضورتان معرفی میگردد";
 
             
             return stiReportResearcher;
+        }
+        public static string CartTagFunc(string carrTag)
+        {
+            string firstCarTag = carrTag.Substring(3, 3);
+            string twoCarTag = carrTag.Substring(0, 2);
+            string wordCarTag = carrTag.Substring(2, 1);
+            string lastCarTag = carrTag.Substring(7, 2);
+            string finalCarTag = firstCarTag + " " + wordCarTag + twoCarTag + " ایران" + lastCarTag;
+            return finalCarTag;
+
         }
         public class draftReportObj
         {
@@ -55,7 +67,8 @@ namespace DraftProject.Common
             foreach (var item in draftModels)
             {
                 draftReportObj itemrr = new draftReportObj();
-                itemrr.DraftReports = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(item.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + item.CarTag +  " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(item.TypeID)).FirstOrDefault().Name + " به مقدار " + item.Value +"تن، از مبدا "+item.Origin+ "  به مقصد " + item.Destination  ;
+                string finalCarTage = CartTagFunc(item.CarTag);
+                itemrr.DraftReports = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(item.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTage +  " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(item.TypeID)).FirstOrDefault().Name + " به مقدار " + item.Value +"تن، از مبدا "+item.Origin+ "  به مقصد " + item.Destination  ;
                 data.Add(itemrr);
                 SumOfValue += item.Value;
             }
