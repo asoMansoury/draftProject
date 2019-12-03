@@ -19,6 +19,7 @@ namespace DraftProject.Draft
         private bool isForUpdate = false;
         private int DraftID = 0;
         bool isForClosing = false;
+        private UniqueModel uniqueModel = null;
         public DraftRegister(bool isForUpdate = false, int DraftID = 0)
         {
             InitializeComponent();
@@ -70,6 +71,17 @@ namespace DraftProject.Draft
                 textBoxes.Add(txtSerial);
                 textBoxes.Add(txtValue);
                 setNullToTextBox(textBoxes);
+
+                if ( DateTime.Now.ToShortDateString() != CommonUtils.ConvertPersianToMiladiDate(uniqueModel.Date).ToShortDateString())
+                    uniqueModel.UniquID = 1;
+                
+                else
+                    uniqueModel.UniquID++;
+                var paramsGenerate = bindFieldsGenerate(uniqueModel.UniquID);
+                context.UpdateGenerate(DatabaseConstantData.GenerateTable, uniqueModel.ID, paramsGenerate);
+                UniqueCrud uniqueCrud = new UniqueCrud();
+                uniqueModel = uniqueCrud.GetLastUnique();
+                fillForRegisterLoad();
             }
             else
             {
@@ -169,9 +181,14 @@ namespace DraftProject.Draft
         private void DraftRegister_Load(object sender, EventArgs e)
         {
             UsersCrud usersCrud = new UsersCrud();
+            UniqueCrud uniqueCrud = new UniqueCrud();
+
+            uniqueModel = uniqueCrud.GetLastUnique();
             var users = usersCrud.findUsers();
             txtUserID.DisplayMember = "Name";
             txtUserID.ValueMember = "ID";
+
+            txtDate.Text = CommonUtils.ConvertMiladiToPersianDate(DateTime.Now.ToShortDateString());
             foreach (var item in users)
             {
                 var model = new ItemModel();
@@ -206,12 +223,17 @@ namespace DraftProject.Draft
 
 
             if (isForUpdate == false)
-            {
-                txtNumber.Text = CommonUtils.generateRandumNumber();
-                txtOrigin.Text = "زرند";
-                txtDestination.Text = "صبا فولاد";
-            }
+                fillForRegisterLoad();
+            
                 
+        }
+
+        private void fillForRegisterLoad()
+        {
+            txtNumber.Text = uniqueModel.UniquID.ToString();
+            txtCarTag.Text = "33ع333-55";
+            txtOrigin.Text = "زرند";
+            txtDestination.Text = "صبا فولاد";
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -251,6 +273,15 @@ namespace DraftProject.Draft
                 paramValues.Add(DraftConstantData.UpdateDate, DateTime.Now.Date.ToString());
                 paramValues.Add(DraftConstantData.UpdateBy, UserLogged.UserID.ToString());
             }
+            return paramValues;
+        }
+
+
+        private Dictionary<string, string> bindFieldsGenerate(int UniqueID)
+        {
+            var paramValues = new Dictionary<string, string>();
+            paramValues.Add(GenerateUniqueConst.Date, CommonUtils.ConvertMiladiToPersianDate(DateTime.Now.ToShortDateString()));
+            paramValues.Add(GenerateUniqueConst.UniquID, UniqueID.ToString());
             return paramValues;
         }
 

@@ -85,6 +85,7 @@
     <Compile Include="DataBase\CRUDSqliLite\DbContext.cs" />
     <Compile Include="DataBase\CRUDSqliLite\DraftCrud.cs" />
     <Compile Include="DataBase\CRUDSqliLite\Map.cs" />
+    <Compile Include="DataBase\CRUDSqliLite\UniqueCrud.cs" />
     <Compile Include="DataBase\CRUDSqliLite\UsersCrud.cs" />
     <Compile Include="DataBase\DraftContext.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -93,6 +94,7 @@
     </Compile>
     <Compile Include="DataBase\Models\DraftModel.cs" />
     <Compile Include="DataBase\Models\ItemModel.cs" />
+    <Compile Include="DataBase\Models\UniqueModel.cs" />
     <Compile Include="DataBase\Models\UsersModel.cs" />
     <Compile Include="DataBase\CRUDSqliLite\SecretKeyModel.cs" />
     <Compile Include="Draft\DraftConstantData.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Draft\DraftRegister.Designer.cs">
       <DependentUpon>DraftRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="Draft\GenerateUniqueConst.cs" />
     <Compile Include="Draft\UpdateDraft.cs">
       <SubType>Form</SubType>
     </Compile>

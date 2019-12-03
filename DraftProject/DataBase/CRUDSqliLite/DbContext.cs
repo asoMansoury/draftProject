@@ -136,5 +136,30 @@ namespace DraftProject.DataBase.CRUDSqliLite
             sql_con.Close();
         }
 
+        public void UpdateGenerate(string TableName, int ID, Dictionary<string, string> parameters)
+        {
+            SetConnection();
+            sql_con.Open();
+            sql_cmd = sql_con.CreateCommand();
+
+            string valueFields = "";
+            foreach (var item in parameters)
+            {
+                valueFields += item.Key + " = @" + item.Key + ",";
+            }
+            if (valueFields.Length > 0)
+                valueFields = valueFields.Remove(valueFields.Length - 1);
+            sql_cmd.CommandText = "UPDATE " + TableName + " SET " + valueFields + " WHERE ID = " + ID;
+
+            sql_cmd.Prepare();
+            foreach (var item in parameters)
+            {
+                string key = "@" + item.Key;
+                sql_cmd.Parameters.AddWithValue(key, item.Value);
+            }
+            sql_cmd.ExecuteNonQuery();
+            sql_con.Close();
+        }
+
     }
 }

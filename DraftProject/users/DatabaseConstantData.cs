@@ -9,6 +9,7 @@ namespace DraftProject.users
     {
         public static string UsersTable = "Users";
         public static string DraftTable = "Draft";
+        public static string GenerateTable = "GenerateUnique";
         public static string UsersFields = "name,Family,UserCode,UserName,Password";
         public static string name = "name";
         public static string Family = "Family";
