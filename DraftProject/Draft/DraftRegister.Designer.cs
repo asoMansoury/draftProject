@@ -39,7 +39,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.عملیاتپایگاهدادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtType = new System.Windows.Forms.ComboBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.txtTruck = new System.Windows.Forms.ComboBox();
             this.txtUserID = new System.Windows.Forms.ComboBox();
             this.txtDestination = new System.Windows.Forms.TextBox();
@@ -192,11 +192,9 @@
             // 
             // txtType
             // 
-            this.txtType.FormattingEnabled = true;
             this.txtType.Location = new System.Drawing.Point(389, 170);
             this.txtType.Name = "txtType";
-            this.txtType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtType.Size = new System.Drawing.Size(246, 21);
+            this.txtType.Size = new System.Drawing.Size(246, 20);
             this.txtType.TabIndex = 25;
             // 
             // txtTruck
@@ -216,11 +214,12 @@
             this.txtUserID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserID.Size = new System.Drawing.Size(246, 21);
             this.txtUserID.TabIndex = 7;
+            this.txtUserID.Visible = false;
             this.txtUserID.SelectedIndexChanged += new System.EventHandler(this.txtUserID_SelectedIndexChanged);
             // 
             // txtDestination
             // 
-            this.txtDestination.Location = new System.Drawing.Point(13, 203);
+            this.txtDestination.Location = new System.Drawing.Point(13, 170);
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(246, 20);
             this.txtDestination.TabIndex = 23;
@@ -234,7 +233,7 @@
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(13, 171);
+            this.txtValue.Location = new System.Drawing.Point(13, 133);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(246, 20);
             this.txtValue.TabIndex = 21;
@@ -242,7 +241,7 @@
             // 
             // txtCertificateDriver
             // 
-            this.txtCertificateDriver.Location = new System.Drawing.Point(13, 137);
+            this.txtCertificateDriver.Location = new System.Drawing.Point(13, 99);
             this.txtCertificateDriver.Name = "txtCertificateDriver";
             this.txtCertificateDriver.Size = new System.Drawing.Size(246, 20);
             this.txtCertificateDriver.TabIndex = 19;
@@ -256,7 +255,7 @@
             // 
             // txtCarTag
             // 
-            this.txtCarTag.Location = new System.Drawing.Point(13, 102);
+            this.txtCarTag.Location = new System.Drawing.Point(13, 64);
             this.txtCarTag.Name = "txtCarTag";
             this.txtCarTag.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtCarTag.Size = new System.Drawing.Size(246, 20);
@@ -265,7 +264,7 @@
             // 
             // txtManagement
             // 
-            this.txtManagement.Location = new System.Drawing.Point(13, 64);
+            this.txtManagement.Location = new System.Drawing.Point(13, 26);
             this.txtManagement.Name = "txtManagement";
             this.txtManagement.Size = new System.Drawing.Size(246, 20);
             this.txtManagement.TabIndex = 15;
@@ -280,14 +279,14 @@
             // 
             // txtSerial
             // 
-            this.txtSerial.Location = new System.Drawing.Point(13, 26);
+            this.txtSerial.Location = new System.Drawing.Point(13, 206);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(246, 20);
             this.txtSerial.TabIndex = 13;
+            this.txtSerial.Visible = false;
             // 
             // txtNumber
             // 
-            this.txtNumber.Enabled = false;
             this.txtNumber.Location = new System.Drawing.Point(389, 26);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(246, 20);
@@ -303,11 +302,12 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "کاربر";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label13.Visible = false;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(297, 206);
+            this.label12.Location = new System.Drawing.Point(297, 178);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label12.Size = new System.Drawing.Size(31, 13);
@@ -327,7 +327,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(269, 174);
+            this.label10.Location = new System.Drawing.Point(269, 136);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label10.Size = new System.Drawing.Size(59, 13);
@@ -337,7 +337,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(276, 144);
+            this.label9.Location = new System.Drawing.Point(276, 106);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label9.Size = new System.Drawing.Size(52, 13);
@@ -367,7 +367,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 109);
+            this.label6.Location = new System.Drawing.Point(271, 71);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(57, 13);
@@ -387,7 +387,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(290, 71);
+            this.label4.Location = new System.Drawing.Point(290, 33);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(38, 13);
@@ -407,12 +407,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 33);
+            this.label2.Location = new System.Drawing.Point(292, 209);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "سریال";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -477,7 +478,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "DraftRegister";
-            this.Text = "DraftRegister";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DraftRegister_FormClosed);
             this.Load += new System.EventHandler(this.DraftRegister_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -532,6 +533,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
         private System.Windows.Forms.ComboBox txtTruck;
-        private System.Windows.Forms.ComboBox txtType;
+        private System.Windows.Forms.TextBox txtType;
     }
 }

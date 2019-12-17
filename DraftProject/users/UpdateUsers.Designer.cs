@@ -50,6 +50,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grdUsers = new System.Windows.Forms.DataGridView();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -215,6 +216,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnDeleteUser);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Location = new System.Drawing.Point(280, 145);
             this.panel1.Name = "panel1";
@@ -223,7 +225,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(80, 15);
+            this.btnSearch.Location = new System.Drawing.Point(120, 15);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 0;
@@ -255,6 +257,16 @@
             this.grdUsers.TabIndex = 0;
             this.grdUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdUsers_CellContentClick);
             // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Location = new System.Drawing.Point(24, 15);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteUser.TabIndex = 8;
+            this.btnDeleteUser.Text = "حذف کاربر";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
+            // 
             // UpdateUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,7 +278,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
             this.Name = "UpdateUsers";
-            this.Text = "UpdateUsers";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateUsers_FormClosed);
             this.Load += new System.EventHandler(this.UpdateUsers_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -306,5 +318,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grdUsers;
         private System.Windows.Forms.ToolStripMenuItem عملیاتپایگاهدادهToolStripMenuItem;
+        private System.Windows.Forms.Button btnDeleteUser;
     }
 }

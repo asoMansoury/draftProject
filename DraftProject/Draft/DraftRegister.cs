@@ -112,6 +112,7 @@ namespace DraftProject.Draft
             txtTruck.Text = model.Truck;
             txtType.Text = model.Type;
             txtValue.Text = model.Value.ToString();
+            txtType.Text = model.Type;
             int index = 0;
             foreach (var item in txtUserID.Items)
             {
@@ -137,16 +138,6 @@ namespace DraftProject.Draft
             txtTruck.SelectedIndex = index;
 
             index = 0;
-            foreach (var item in txtType.Items)
-            {
-                var ItemModel = item as ItemModel;
-                if (ItemModel.ID.ToString() == model.TypeID)
-                {
-                    break;
-                }
-                index++;
-            }
-            txtType.SelectedIndex = index;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -204,14 +195,6 @@ namespace DraftProject.Draft
                 txtTruck.Items.Add(item);
             }
 
-            txtType.DisplayMember = "Name";
-            txtType.ValueMember = "ID";
-            foreach (var item in CommonUtils.getTypes())
-            {
-                txtType.Items.Add(item);
-            }
-
-
             if (isForUpdate == true)
             {
                 btnUpdate.Enabled = true;
@@ -220,6 +203,7 @@ namespace DraftProject.Draft
                 var draft = draftCrud.findDraftByID(DraftID);
                 setElementsValue(draft);
             }
+
 
 
             if (isForUpdate == false)
@@ -234,6 +218,11 @@ namespace DraftProject.Draft
             txtCarTag.Text = "33ع333-55";
             txtOrigin.Text = "زرند";
             txtDestination.Text = "صبا فولاد";
+            txtManagement.Text = "مجتجع کنسانتره و گندله سازی فولاد زرند ایرانیان";
+            txtTruck.SelectedIndex = 0;
+            txtUserID.SelectedIndex = 0;
+            txtSerial.Text = "11";
+            txtDate.Text = CommonUtils.ConvertMiladiToPersianDate(DateTime.Now.ToShortDateString());
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -257,8 +246,7 @@ namespace DraftProject.Draft
 
             var selectedTruck = txtTruck.SelectedItem as ItemModel;
             paramValues.Add(DraftConstantData.Truck, selectedTruck.ID.ToString());
-            var selectedType = txtType.SelectedItem as ItemModel;
-            paramValues.Add(DraftConstantData.Type, selectedType.ID.ToString());
+            paramValues.Add(DraftConstantData.Type, txtType.Text);
             var selectedUser = txtUserID.SelectedItem as ItemModel;
             paramValues.Add(DraftConstantData.UserID, selectedUser.ID.ToString());
             paramValues.Add(DraftConstantData.Value, txtValue.Text);

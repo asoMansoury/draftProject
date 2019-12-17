@@ -47,7 +47,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
             if (fieldNames.Length > 0)
                 fieldNames = fieldNames.Remove(fieldNames.Length - 1);
 
-            sql_cmd.CommandText = "INSERT into "+ TableName+"("+ fieldNames + ") VALUES ("+ valueFields + ")";
+            sql_cmd.CommandText =String.Format("INSERT into {0}({1}) VALUES ({2})",TableName,fieldNames,valueFields);
 
             sql_cmd.Prepare();
             foreach (var item in parameters)
@@ -99,7 +99,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
 
         public bool ActiveSecretCode(string Key)
         {
-            string query = @"Update SecretKeys Set IsActive = true where Key  = '" + Key + "'";
+            string query =String.Format( "Update SecretKeys Set IsActive = true where Key  = '{0}'",Key);
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
@@ -124,7 +124,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
             }
             if (valueFields.Length > 0)
                 valueFields = valueFields.Remove(valueFields.Length - 1);
-            sql_cmd.CommandText = "UPDATE " + TableName + " SET "+ valueFields + " WHERE ID = " + ID;
+            sql_cmd.CommandText =String.Format("UPDATE {0} SET {1} WHERE ID = {2}",TableName,valueFields,ID) ;
 
             sql_cmd.Prepare();
             foreach (var item in parameters)
@@ -149,7 +149,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
             }
             if (valueFields.Length > 0)
                 valueFields = valueFields.Remove(valueFields.Length - 1);
-            sql_cmd.CommandText = "UPDATE " + TableName + " SET " + valueFields + " WHERE ID = " + ID;
+            sql_cmd.CommandText =String.Format("UPDATE {0} SET {1} WHERE ID = {2}",TableName,valueFields,ID) ;
 
             sql_cmd.Prepare();
             foreach (var item in parameters)

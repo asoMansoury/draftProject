@@ -68,7 +68,7 @@
             this.Controls.Add(this.txtSecret);
             this.Controls.Add(this.label1);
             this.Name = "ActiveProgram";
-            this.Text = "ActiveProgram";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -43,10 +43,10 @@
         <PageHeaderBand1 Ref="5" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,19,1.2</ClientRectangle>
-          <Components isList="true" count="1">
+          <Components isList="true" count="2">
             <Text1 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,18.8,1.2</ClientRectangle>
+              <ClientRectangle>6,0,6.4,1.2</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Arial,24,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -58,35 +58,54 @@
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text1>
+            <Text3 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,3.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,10,Bold</Font>
+              <Guid>b93a16f1661e440d8682f9b7eaeb289f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شرکت حمل و نقل  طائف بار</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </PageHeaderBand1>
-        <Panel1 Ref="7" type="Panel" isKey="true">
+        <Panel1 Ref="8" type="Panel" isKey="true">
           <Brush>Transparent</Brush>
           <CanGrow>True</CanGrow>
-          <ClientRectangle>0.2,2.4,18.6,22.4</ClientRectangle>
+          <ClientRectangle>0,2.2,18.8,22.6</ClientRectangle>
           <Components isList="true" count="1">
-            <DataBand1 Ref="8" type="DataBand" isKey="true">
+            <DataBand1 Ref="9" type="DataBand" isKey="true">
               <Brush>Transparent</Brush>
               <BusinessObjectGuid>094aedb0203c41d1a863eee3ae0ac246</BusinessObjectGuid>
-              <ClientRectangle>0,0.4,18.6,2.4</ClientRectangle>
+              <CanBreak>True</CanBreak>
+              <ClientRectangle>0,0.4,18.8,2.4</ClientRectangle>
+              <ColumnDirection>DownThenAcross</ColumnDirection>
               <Components isList="true" count="1">
-                <Text2 Ref="9" type="Text" isKey="true">
+                <Text2 Ref="10" type="Text" isKey="true">
+                  <AutoWidth>True</AutoWidth>
                   <Border>Bottom;Black;1;Solid;False;4;Black</Border>
                   <Brush>EmptyBrush</Brush>
                   <CanBreak>True</CanBreak>
                   <CanGrow>True</CanGrow>
-                  <ClientRectangle>0.2,0.6,18.2,1</ClientRectangle>
+                  <ClientRectangle>0,0.6,18.6,1.8</ClientRectangle>
                   <Conditions isList="true" count="0" />
-                  <Font>Arial,14,Bold</Font>
+                  <Font>Arial,9,Bold</Font>
+                  <GrowToHeight>True</GrowToHeight>
                   <HorAlignment>Center</HorAlignment>
                   <Margins>0,0,0,0</Margins>
                   <Name>Text2</Name>
                   <Page isRef="4" />
-                  <Parent isRef="8" />
+                  <Parent isRef="9" />
                   <Text>{DraftReports.DraftReports}</Text>
                   <TextBrush>Black</TextBrush>
                   <Type>DataColumn</Type>
@@ -97,7 +116,7 @@
               <Filters isList="true" count="0" />
               <Name>DataBand1</Name>
               <Page isRef="4" />
-              <Parent isRef="7" />
+              <Parent isRef="8" />
               <Sort isList="true" count="0" />
             </DataBand1>
           </Components>
@@ -106,12 +125,13 @@
           <Name>Panel1</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
+          <RightToLeft>True</RightToLeft>
         </Panel1>
-        <Panel2 Ref="10" type="Panel" isKey="true">
+        <Panel2 Ref="11" type="Panel" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0.2,25.8,18.6,1.6</ClientRectangle>
           <Components isList="true" count="1">
-            <TxtSumValue Ref="11" type="Text" isKey="true">
+            <TxtSumValue Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0.2,0.8,18.2,1</ClientRectangle>
@@ -121,7 +141,7 @@
               <Margins>0,0,0,0</Margins>
               <Name>TxtSumValue</Name>
               <Page isRef="4" />
-              <Parent isRef="10" />
+              <Parent isRef="11" />
               <TextBrush>Black</TextBrush>
             </TxtSumValue>
           </Components>
@@ -138,13 +158,13 @@
       <PageHeight>29.7</PageHeight>
       <PageWidth>21</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="12" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="13" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="13" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="14" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -156,10 +176,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/4/2019 4:48:19 PM</ReportChanged>
+  <ReportChanged>12/11/2019 2:09:12 PM</ReportChanged>
   <ReportCreated>11/4/2019 2:23:13 PM</ReportCreated>
-  <ReportFile>D:\DraftProject\draftProject\DraftProject\bin\Debug\ReportList.mrt</ReportFile>
-  <ReportGuid>4af231016c9e42f19aabc840ac88b3a0</ReportGuid>
+  <ReportFile />
+  <ReportGuid>32b6232604094d38a3dae5f4bfccf54f</ReportGuid>
   <ReportImage isNull="true" />
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>

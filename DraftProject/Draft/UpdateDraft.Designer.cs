@@ -39,16 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCarTag = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSerial = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
             this.txtManagement = new System.Windows.Forms.TextBox();
             this.txtFromDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sdf = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnPrintAll = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnPrintAll = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grdDrafts = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -90,7 +90,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtCarTag);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtSerial);
+            this.panel3.Controls.Add(this.txtNumber);
             this.panel3.Controls.Add(this.txtManagement);
             this.panel3.Controls.Add(this.txtFromDate);
             this.panel3.Controls.Add(this.label3);
@@ -181,12 +181,12 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "شماره پلاک";
             // 
-            // txtSerial
+            // txtNumber
             // 
-            this.txtSerial.Location = new System.Drawing.Point(398, 15);
-            this.txtSerial.Name = "txtSerial";
-            this.txtSerial.Size = new System.Drawing.Size(271, 20);
-            this.txtSerial.TabIndex = 8;
+            this.txtNumber.Location = new System.Drawing.Point(398, 15);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(271, 20);
+            this.txtNumber.TabIndex = 8;
             // 
             // txtManagement
             // 
@@ -218,7 +218,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "سریال";
+            this.label2.Text = "شماره";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // sdf
@@ -240,16 +240,6 @@
             this.panel1.Size = new System.Drawing.Size(195, 47);
             this.panel1.TabIndex = 9;
             // 
-            // btnPrintAll
-            // 
-            this.btnPrintAll.Location = new System.Drawing.Point(136, 12);
-            this.btnPrintAll.Name = "btnPrintAll";
-            this.btnPrintAll.Size = new System.Drawing.Size(102, 23);
-            this.btnPrintAll.TabIndex = 13;
-            this.btnPrintAll.Text = "گزارش کامل";
-            this.btnPrintAll.UseVisualStyleBackColor = true;
-            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(25, 13);
@@ -269,6 +259,16 @@
             this.btnSearch.Text = "جستجو";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnPrintAll
+            // 
+            this.btnPrintAll.Location = new System.Drawing.Point(136, 12);
+            this.btnPrintAll.Name = "btnPrintAll";
+            this.btnPrintAll.Size = new System.Drawing.Size(102, 23);
+            this.btnPrintAll.TabIndex = 13;
+            this.btnPrintAll.Text = "گزارش کامل";
+            this.btnPrintAll.UseVisualStyleBackColor = true;
+            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
             // 
             // groupBox1
             // 
@@ -451,7 +451,7 @@
             this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
             this.Name = "UpdateDraft";
-            this.Text = "UpdateDraft";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UpdateDraft_FormClosed);
             this.Load += new System.EventHandler(this.UpdateDraft_Load);
             this.panel3.ResumeLayout(false);
@@ -472,7 +472,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtSerial;
+        private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtManagement;
         private System.Windows.Forms.TextBox txtFromDate;
         private System.Windows.Forms.Label label3;

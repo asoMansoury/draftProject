@@ -29,6 +29,7 @@ namespace DraftProject.Draft
         public static string UpdateBy = "UpdateBy";
         public static string RestoreDate = "RestoreDate";
         public static string RestoreBy = "RestoreBy";
+        public static string IsActive = "IsActive";
 
     }
 }

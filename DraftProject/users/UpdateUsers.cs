@@ -102,5 +102,21 @@ namespace DraftProject.users
         {
 
         }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            var currentRow = grdUsers.CurrentRow;
+            if (currentRow != null)
+            {
+                int ID = Int32.Parse(currentRow.Cells[0].Value.ToString());
+                var userService = new UsersCrud();
+                userService.DisableUser(ID);
+                MessageBox.Show("عملیات با موفقیت انجام شد");
+            }
+            else
+            {
+                MessageBox.Show("لطفا رکورد مورد نظر خود را انتخاب نمایید.");
+            }
+        }
     }
 }

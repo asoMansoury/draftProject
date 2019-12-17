@@ -52,13 +52,22 @@ namespace DraftProject
             var user = userContext.findUser(userName,CommonUtils.HashingPassword(password));
             if (user!=null)
             {
-                UserLogged.UserID = user.ID;
-                UserLogged.UserName = user.userName;
-                CommonUtils.uniqeUserID = user.ID.ToString();
-                RegisterUserForm frmUser = new RegisterUserForm();
-                frmUser.Show();
-                this.Hide();
-                return;
+                if (user.IsActive == 1)
+                {
+                    UserLogged.UserID = user.ID;
+                    UserLogged.UserName = user.userName;
+                    CommonUtils.uniqeUserID = user.ID.ToString();
+                    RegisterUserForm frmUser = new RegisterUserForm();
+                    frmUser.Show();
+                    this.Hide();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("نام کاربر یا کلمه عبور اشتباه است", "ورود", MessageBoxButtons.OK);
+                    return;
+                }
+
             }
             else {
                 MessageBox.Show("نام کاربر یا کلمه عبور اشتباه است", "ورود", MessageBoxButtons.OK);

@@ -47,12 +47,12 @@ namespace DraftProject.Draft
 
         private void searchGrid(int page = 0)
         {
-            var Name = txtSerial.Text;
+            var Name = txtNumber.Text;
             var Family = txtManagement.Text;
             var UserName = txtFromDate.Text;
             var userService = new DraftCrud();
             var model = new DraftModel();
-            model.Serial = txtSerial.Text;
+            model.Number = txtNumber.Text;
             model.Management = txtManagement.Text;
             model.Date = txtFromDate.Text;
             model.CarTag = txtCarTag.Text;
@@ -191,12 +191,12 @@ namespace DraftProject.Draft
 
         private void btnPrintAll_Click(object sender, EventArgs e)
         {
-            var Name = txtSerial.Text;
+            var Name = txtNumber.Text;
             var Family = txtManagement.Text;
             var UserName = txtFromDate.Text;
             var userService = new DraftCrud();
             var model = new DraftModel();
-            model.Serial = txtSerial.Text;
+            model.Serial = txtNumber.Text;
             model.Management = txtManagement.Text;
             model.Date = txtFromDate.Text;
             model.CarTag = txtCarTag.Text;

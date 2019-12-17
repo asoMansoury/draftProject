@@ -240,14 +240,14 @@
             // ایجادکاربرجدیدToolStripMenuItem
             // 
             this.ایجادکاربرجدیدToolStripMenuItem.Name = "ایجادکاربرجدیدToolStripMenuItem";
-            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ایجادکاربرجدیدToolStripMenuItem.Text = "ایجاد کاربر جدید";
             this.ایجادکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادکاربرجدیدToolStripMenuItem_Click);
             // 
             // ویرایشکاربرجدیدToolStripMenuItem
             // 
             this.ویرایشکاربرجدیدToolStripMenuItem.Name = "ویرایشکاربرجدیدToolStripMenuItem";
-            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشکاربرجدیدToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ویرایشکاربرجدیدToolStripMenuItem.Text = "ویرایش کاربر";
             this.ویرایشکاربرجدیدToolStripMenuItem.Click += new System.EventHandler(this.ویرایشکاربرجدیدToolStripMenuItem_Click);
             // 
@@ -263,14 +263,14 @@
             // ایجادحوالهجدیدToolStripMenuItem
             // 
             this.ایجادحوالهجدیدToolStripMenuItem.Name = "ایجادحوالهجدیدToolStripMenuItem";
-            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ایجادحوالهجدیدToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ایجادحوالهجدیدToolStripMenuItem.Text = "ایجاد حواله جدید";
             this.ایجادحوالهجدیدToolStripMenuItem.Click += new System.EventHandler(this.ایجادحوالهجدیدToolStripMenuItem_Click);
             // 
             // ویرایشحوالهToolStripMenuItem
             // 
             this.ویرایشحوالهToolStripMenuItem.Name = "ویرایشحوالهToolStripMenuItem";
-            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ویرایشحوالهToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.ویرایشحوالهToolStripMenuItem.Text = "ویرایش حواله";
             this.ویرایشحوالهToolStripMenuItem.Click += new System.EventHandler(this.ویرایشحوالهToolStripMenuItem_Click);
             // 
@@ -298,7 +298,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
             this.Name = "RegisterUserForm";
-            this.Text = "RegisterUserForm";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterUserForm_FormClosed);
             this.Load += new System.EventHandler(this.RegisterUserForm_Load);
             this.panel1.ResumeLayout(false);

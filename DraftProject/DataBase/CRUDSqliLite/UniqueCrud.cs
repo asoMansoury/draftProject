@@ -19,7 +19,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public UniqueModel GetLastUnique()
         {
             List<UniqueModel> result = new List<UniqueModel>();
-            var executeQuery = db.LoadData(@"SELECT * FROM GenerateUnique");
+            var executeQuery = db.LoadData(String.Format("SELECT * FROM GenerateUnique"));
             if (executeQuery.Rows.Count > 0)
                 foreach (DataRow item in executeQuery.Rows)
                 {

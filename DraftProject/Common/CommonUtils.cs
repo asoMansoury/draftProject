@@ -27,17 +27,24 @@ namespace DraftProject.Common
             stiReportResearcher = new StiReport();
             stiReportResearcher.Load(Application.StartupPath + "\\Report.mrt");
 
-
-
             StiText Part1 = new StiText();
             Part1 = (StiText)stiReportResearcher.GetComponentByName("Part1");
             Part1.Text = "مدیریت محترم : " + findedDraft.Origin;
+
+            StiText txtDate = new StiText();
+            txtDate = (StiText)stiReportResearcher.GetComponentByName("txtDate");
+            txtDate.Text = "تاریخ : " + findedDraft.Date;
+
+            StiText txtNumber = new StiText();
+            txtNumber = (StiText)stiReportResearcher.GetComponentByName("txtNumber");
+            txtNumber.Text = "شماره گزارش : " + findedDraft.Number;
+
 
             StiText Part2 = new StiText();
             Part2 = (StiText)stiReportResearcher.GetComponentByName("Part2");
             string carrTag = findedDraft.CarTag;
             string finalCarTag = CartTagFunc(carrTag);
-            Part2.Text = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(findedDraft.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTag + " به رانندگی " + findedDraft.Driver + " شماره گواهینامه " + findedDraft.CertificateDriver + " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(findedDraft.TypeID)).FirstOrDefault().Name + " به مقدار " + findedDraft.Value + " تن به مقصد " + findedDraft.Destination + "  حضورتان معرفی میگردد";
+            Part2.Text = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(findedDraft.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTag + " به رانندگی " + findedDraft.Driver + " شماره گواهینامه " + findedDraft.CertificateDriver + " جهت حمل " + findedDraft.TypeID + " به مقدار " + findedDraft.Value + " تن به مقصد " + findedDraft.Destination + "  حضورتان معرفی میگردد";
 
             
             return stiReportResearcher;
@@ -68,7 +75,7 @@ namespace DraftProject.Common
             {
                 draftReportObj itemrr = new draftReportObj();
                 string finalCarTage = CartTagFunc(item.CarTag);
-                itemrr.DraftReports = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(item.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTage +  " جهت حمل " + getTypes().Where(z => z.ID == Int32.Parse(item.TypeID)).FirstOrDefault().Name + " به مقدار " + item.Value +"تن، از مبدا "+item.Origin+ "  به مقصد " + item.Destination  ;
+                itemrr.DraftReports = " کامیون " + getTrucksType().Where(z => z.ID == Int32.Parse(item.TruckID)).FirstOrDefault().Name + " به شماره پلاک " + finalCarTage +  " جهت حمل " + item.TypeID + " به مقدار " + item.Value +"تن،از مبدا "+item.Origin+ "  به مقصد " + item.Destination  +" به شماره "+item.Number+" تاریخ "+item.Date;
                 data.Add(itemrr);
                 SumOfValue += item.Value;
             }
@@ -81,6 +88,13 @@ namespace DraftProject.Common
         }
         public static string HashingPassword(string Password)
         {
+            var data =Password.ToArray().ToList();
+            var resultData = "";
+            foreach (char item in data)
+            {
+                resultData += Char.ConvertFromUtf32(System.Convert.ToInt32(item)+8);
+            }
+            return resultData;
             byte[] byteArray = Encoding.UTF8.GetBytes(Password);
             MemoryStream stream = new MemoryStream(byteArray);
             var sha1 = new SHA1CryptoServiceProvider();

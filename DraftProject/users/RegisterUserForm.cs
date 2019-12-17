@@ -72,6 +72,7 @@ namespace DraftProject.users
             {
                 paramValues.Add(DatabaseConstantData.InsertDate, DateTime.Now.Date.ToString());
                 paramValues.Add(DatabaseConstantData.InsertBy, UserLogged.UserID.ToString());
+                paramValues.Add(DraftConstantData.IsActive, "1");
             }
             else
             {

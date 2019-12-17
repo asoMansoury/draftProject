@@ -20,7 +20,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public DraftModel findUser(string userName, string password)
         {
             var result = new DraftModel();
-            var executeQuery = db.LoadData(@"SELECT * from Users WHERE UserName = '" + userName + "' AND Password = '" + password + "'");
+            var executeQuery = db.LoadData(String.Format("SELECT * from Users WHERE UserName = '{0}' AND Password = '{1}'",userName,password));
             if (executeQuery.Rows.Count > 0)
             {
                 foreach (DataRow item in executeQuery.Rows)
@@ -36,7 +36,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public DraftModel findDraftByID(int ID)
         {
             var result = new DraftModel();
-            var executeQuery = db.LoadData(@"SELECT * from Draft WHERE ID=" + ID);
+            var executeQuery = db.LoadData(String.Format("SELECT * from Draft WHERE ID={0}" , ID));
             if (executeQuery.Rows.Count > 0)
             {
                 foreach (DataRow item in executeQuery.Rows)
@@ -52,7 +52,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public DraftModel findDraftByNumber(string Number)
         {
             var result = new DraftModel();
-            var executeQuery = db.LoadData(@"SELECT * from Draft WHERE Number=" + Number);
+            var executeQuery = db.LoadData(String.Format("SELECT * from Draft WHERE Number={0}", Number));
             if (executeQuery.Rows.Count > 0)
             {
                 foreach (DataRow item in executeQuery.Rows)
@@ -75,34 +75,36 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public List<DraftModel> findDrafts(DraftModel draftModel,int page = 0,string FromDate="",string ToDate="")
         {
             var result = new List<DraftModel>();
-            string query = @"SELECT * from Draft WHERE ID Is NOT NULL ";
-            query += draftModel.Serial != "" ? " AND Serial = '" + draftModel.Serial + "'" : "";
-            query += draftModel.Management != "" ? "AND Management ='" + draftModel.Management + "'" : "";
+            string query =String.Format("SELECT * from Draft WHERE ID Is NOT NULL ");
+            query += !string.IsNullOrEmpty(draftModel.Number) ? String.Format(" AND Number = '{0}'",draftModel.Number) : "";
+            query += draftModel.Management != "" ?String.Format( "AND Management ='{0}'",draftModel.Management) : "";
 
-            query += draftModel.CarTag != "" ? "AND CarTag ='" + draftModel.CarTag + "'" : "";
+            query += draftModel.CarTag != "" ?String.Format("AND CarTag ='{0}'",draftModel.CarTag) : "";
 
-            query += draftModel.Driver != "" ? "AND Driver ='" + draftModel.Driver + "'" : "";
-            query += draftModel.Type != "" ? "AND Type ='" + draftModel.Type + "'" : "";
+            query += draftModel.Driver != "" ?String.Format("AND Driver ='{0}'",draftModel.Driver) : "";
+            query += draftModel.Type != "" ? String.Format("AND Type ='{0}'",draftModel.Type) : "";
 
-            query += draftModel.Origin != "" ? "AND Origin ='" + draftModel.Origin + "'" : "";
-            query += draftModel.Destination != "" ? "AND Destination ='" + draftModel.Destination + "'" : "";
+            query += draftModel.Origin != "" ? String.Format("AND Origin ='{0}'",draftModel.Origin) : "";
+            query += draftModel.Destination != "" ?String.Format( "AND Destination ='{0}'",draftModel.Destination) : "";
 
             if (FromDate != "" || ToDate != "")
             {
                 if (FromDate != "" && ToDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) between '"+SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate))+"' and '"+SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate))+"'";
+                    query +=String.Format( " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) between '{0}' and '{1}'", 
+                        SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)), 
+                        SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)));
                 }else if (FromDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) >= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate))+"'";
+                    query += String.Format(" AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) >= '{0}'", SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)));
                 }
                 else if(ToDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) <= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate))+"'";
+                    query +=String.Format( " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) <= '{0}'", SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)));
                 }
             }
 
-            query += " LIMIT 10 OFFSET "+page*10;
+            query +=String.Format( " LIMIT 10 OFFSET {0}",page*10);
             var executeQuery = db.LoadData(query);
             if (executeQuery.Rows.Count > 0)
             {
@@ -119,31 +121,33 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public List<DraftModel> findAllDrafts(DraftModel draftModel, int page = 0, string FromDate = "", string ToDate = "")
         {
             var result = new List<DraftModel>();
-            string query = @"SELECT * from Draft WHERE ID Is NOT NULL ";
-            query += draftModel.Serial != "" ? " AND Serial = '" + draftModel.Serial + "'" : "";
-            query += draftModel.Management != "" ? "AND Management ='" + draftModel.Management + "'" : "";
+            string query =String.Format("SELECT * from Draft WHERE ID Is NOT NULL ");
+            query += !string.IsNullOrEmpty(draftModel.Number)  ? String.Format(" AND Number = '{0}'",draftModel.Number) : "";
+            query += draftModel.Management != "" ?String.Format( "AND Management ='" + draftModel.Management + "'") : "";
 
-            query += draftModel.CarTag != "" ? "AND CarTag ='" + draftModel.CarTag + "'" : "";
+            query += draftModel.CarTag != "" ?String.Format( "AND CarTag ='{0}'",draftModel.CarTag) : "";
 
-            query += draftModel.Driver != "" ? "AND Driver ='" + draftModel.Driver + "'" : "";
-            query += draftModel.Type != "" ? "AND Type ='" + draftModel.Type + "'" : "";
+            query += draftModel.Driver != "" ?String.Format( "AND Driver ='{0}'",draftModel.Driver) : "";
+            query += draftModel.Type != "" ? String.Format("AND Type ='{0}'",draftModel.Type) : "";
 
-            query += draftModel.Origin != "" ? "AND Origin ='" + draftModel.Origin + "'" : "";
-            query += draftModel.Destination != "" ? "AND Destination ='" + draftModel.Destination + "'" : "";
+            query += draftModel.Origin != "" ?String.Format( "AND Origin ='{0}'",draftModel.Origin) : "";
+            query += draftModel.Destination != "" ?String.Format( "AND Destination ='{0}'",draftModel.Destination) : "";
 
             if (FromDate != "" || ToDate != "")
             {
                 if (FromDate != "" && ToDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) between '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)) + "' and '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)) + "'";
+                    query +=String.Format( " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) between '{0}' and '{1}'", 
+                        SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)), 
+                        SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)));
                 }
                 else if (FromDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) >= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)) + "'";
+                    query +=String.Format( " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) >= '{0}'", SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(FromDate)));
                 }
                 else if (ToDate != "")
                 {
-                    query += " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) <= '" + SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)) + "'";
+                    query +=String.Format( " AND substr(Date,7)||substr(Date,1,2) ||substr(Date,4,2) <= '{0}'", SplitBackFromDate(CommonUtils.ConvertPersianToMiladiDate(ToDate)));
                 }
             }
 
@@ -173,7 +177,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
             result.TruckID = item["Truck"].ToString();
             result.TypeID = item["Type"].ToString();
             result.Truck = CommonUtils.getTrucksType().Where(z => z.ID == Int32.Parse(item["Truck"].ToString())).FirstOrDefault().Name ;
-            result.Type = CommonUtils.getTypes().Where(z=>z.ID== Int32.Parse(item["Type"].ToString())).FirstOrDefault().Name;
+            result.Type = item["Type"].ToString();
             result.Origin = Encoding.UTF8.GetString(item["Origin"] as byte[]);
             result.Destination = Encoding.UTF8.GetString(item["Destination"] as byte[]);
             result.Value = Int32.Parse(item["Value"].ToString());
@@ -187,7 +191,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
         public List<DraftModel> GetDrafts(string path)
         {
             List<DraftModel> result = new List<DraftModel>();
-            string query = @"SELECT * from Draft IsBackup Is null or IsBackup = false";
+            string query = String.Format("SELECT * from Draft IsBackup Is null or IsBackup = false");
             db.SetConnection(path);
             var executeQuery = db.ExecuteQueryForLoading(query);
             if (executeQuery.Rows.Count > 0)
@@ -204,7 +208,7 @@ namespace DraftProject.DataBase.CRUDSqliLite
 
         public void UpdateDraftTabe(string path)
         {
-            string query = @"Update Draft Set IsBackup = true where IsBackup Is Null or IsBackup = false";
+            string query = String.Format("Update Draft Set IsBackup = true where IsBackup Is Null or IsBackup = false");
             db.SetConnection(path);
             var executeQuery = db.ExecuteQueryForLoading(query);
         }

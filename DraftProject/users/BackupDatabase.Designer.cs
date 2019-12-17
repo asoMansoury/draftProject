@@ -61,7 +61,7 @@
             this.Controls.Add(this.button1);
             this.Name = "BackupDatabase";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "BackupDatabase";
+            this.Text = "شرکت حمل و نقل طائف بار";
             this.Load += new System.EventHandler(this.BackupDatabase_Load);
             this.ResumeLayout(false);
 
