@@ -161,7 +161,10 @@ namespace DraftProject.Draft
                 DbContext context = new DbContext();
                 context.UpdateUser(DatabaseConstantData.DraftTable, DraftID, paramValues);
                 MessageBox.Show("اطلاعات با موفقیت ثبت گردید", "ثبت اطلاعات", MessageBoxButtons.OK);
-                this.Close();
+                DraftCrud draftCrud = new DraftCrud();
+                var draft = draftCrud.findDraftByID(DraftID);
+                var stiReport = CommonUtils.ShowReport(draft.ID);
+                stiReport.Show();
             }
             else
             {

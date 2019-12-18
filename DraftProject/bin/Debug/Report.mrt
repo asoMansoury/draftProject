@@ -48,7 +48,7 @@
         </txtDate>
         <txtMobile Ref="5" type="Text" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>1.3,6.7,2.1,0.5</ClientRectangle>
+          <ClientRectangle>0.4,6.9,3.5,0.5</ClientRectangle>
           <Conditions isList="true" count="0" />
           <Font>B Titr,14,Bold</Font>
           <HorAlignment>Center</HorAlignment>
@@ -56,8 +56,7 @@
           <Name>txtMobile</Name>
           <Page isRef="2" />
           <Parent isRef="2" />
-          <Text>شماره موبایل :
-09136045926</Text>
+          <Text>شماره موبایل : 09136045926</Text>
           <TextBrush>Black</TextBrush>
           <Type>Expression</Type>
           <VertAlignment>Center</VertAlignment>
@@ -166,10 +165,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/17/2019 3:23:01 PM</ReportChanged>
+  <ReportChanged>12/18/2019 2:22:34 PM</ReportChanged>
   <ReportCreated>1/2/2019 7:46:57 PM</ReportCreated>
   <ReportFile>D:\DraftProject\draftProject\DraftProject\bin\Debug\Report.mrt</ReportFile>
-  <ReportGuid>b4c4e2b711444ddd8a834450b8cb2364</ReportGuid>
+  <ReportGuid>b496a8fdec534463954ef987c50cc480</ReportGuid>
   <ReportImage isNull="true" />
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
